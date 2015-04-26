@@ -42,10 +42,11 @@ public class MainActivity extends ActionBarActivity {
         Date now_calendar = Calendar.getInstance().getTime();
         String now = df.format(now_calendar);
         data.add(new Transactions("Huawei", "9800", now));
-        data.add(new Transactions("SamsungS3", "13000", now));
+        data.add(new Transactions("Samsung", "13000", now));
         data.add(new Transactions("T-shirt", "300", now));
         data.add(new Transactions("Jeans", "1500", now));
         data.add(new Transactions("Printer", "4500", now));
+        data.add(new Transactions("Bigmac", "400", now));
         return data;
     }
 }

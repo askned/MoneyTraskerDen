@@ -33,7 +33,14 @@ public class TransactionAdapter extends ArrayAdapter<Transactions> {
         title.setText(transactions.getTitle());
         sum.setText(Integer.toString(transactions.getSum()));
         date.setText(transactions.getDate());
-        String color = position % 2 == 0 ? "#FEFF91" : "#CBFDD2";
+        String color = "#f9de11";
+        if (position % 3 == 0)
+            color = "#f9de11";
+        else if (position % 2 == 0)
+            color = "#ffd7a0";
+        else
+            color = "#caf8ff";
+
         convertView.setBackgroundColor(Color.parseColor(color));
         return convertView;
     }
