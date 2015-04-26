@@ -38,7 +38,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private List<Transactions> getDataList() {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd", new Locale("ru"));
+        DateFormat df = new SimpleDateFormat("yyyy-MMM-dd", new Locale("ru"));
         Date now_calendar = Calendar.getInstance().getTime();
         String now = df.format(now_calendar);
         data.add(new Transactions("Huawei", "9800", now));
