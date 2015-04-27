@@ -19,7 +19,7 @@
             android:id="@+id/date_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="@dimen/textsize"
             android:text="@string/date"/>
     </LinearLayout>
 
@@ -30,7 +30,7 @@
         style="@style/TextMain"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/margintop"
         android:textStyle="bold"
         android:text="@string/sum"/>
 
