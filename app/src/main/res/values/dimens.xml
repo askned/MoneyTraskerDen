@@ -5,4 +5,5 @@
     <dimen name="div_hig">0.4dp</dimen>
     <dimen name="textsize">12sp</dimen>
     <dimen name="margintop">10dp</dimen>
+    <dimen name="drawer_list_width">150dp</dimen>
 </resources>

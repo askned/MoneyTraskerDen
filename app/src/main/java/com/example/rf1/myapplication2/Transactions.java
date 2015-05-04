@@ -5,6 +5,7 @@ package com.example.rf1.myapplication2;
 /**
 
  */
+@SuppressWarnings("ALL")
 public class Transactions {
     private String title;
     private int sum;

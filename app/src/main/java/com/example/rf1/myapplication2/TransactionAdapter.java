@@ -1,7 +1,5 @@
 package com.example.rf1.myapplication2;
 
-import android.widget.ArrayAdapter;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -12,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+@SuppressWarnings("UnusedAssignment")
 public class TransactionAdapter extends ArrayAdapter<Transactions> {
     List<Transactions> transactions;
 
