@@ -21,32 +21,14 @@ import java.util.Locale;
 
 public class MainActivity extends ActionBarActivity {
 
-    private ListView listView;
-    private TransactionAdapter transactionAdapter;
-    List<Transactions> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<Transactions> adapterData = getDataList();
-        transactionAdapter = new TransactionAdapter(this, adapterData);
 
-        listView = (ListView) findViewById(R.id.list_view_id);
-        listView.setAdapter(transactionAdapter);
     }
 
-    private List<Transactions> getDataList() {
-        DateFormat df = new SimpleDateFormat("yyyy-MMM-dd", new Locale("ru"));
-        Date now_calendar = Calendar.getInstance().getTime();
-        String now = df.format(now_calendar);
-        data.add(new Transactions("Huawei", "9800", now));
-        data.add(new Transactions("Samsung", "13000", now));
-        data.add(new Transactions("T-shirt", "300", now));
-        data.add(new Transactions("Jeans", "1500", now));
-        data.add(new Transactions("Printer", "4500", now));
-        data.add(new Transactions("Bigmac", "400", now));
-        return data;
-    }
+
 }
