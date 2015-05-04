@@ -40,6 +40,7 @@ public class MainActivity extends ActionBarActivity {
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.setDrawerListener(drawerToggle);
 
+        getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment()).commit();
 
     }
 
@@ -67,7 +68,7 @@ public class MainActivity extends ActionBarActivity {
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.categorii));
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, new StatmentFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.content_frame, new CategoryFragment()).commit();
             }
             if (position == 2) {
                 left_drawer.setItemChecked(position, true);

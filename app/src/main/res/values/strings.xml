@@ -11,4 +11,5 @@
     <string name="text_statpage">Здесь будет статистика</string>
     <string name="statistics">Статистика</string>
     <string name="categorii">Категории</string>
+    <string name="textcategory">Тут категории</string>
 </resources>
