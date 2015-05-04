@@ -8,4 +8,7 @@
     <string name="sum">Sum</string>
     <string name="date">date</string>
     <string name="transactions">Траты</string>
+    <string name="text_statpage">Здесь будет статистика</string>
+    <string name="statistics">Статистика</string>
+    <string name="categorii">Категории</string>
 </resources>

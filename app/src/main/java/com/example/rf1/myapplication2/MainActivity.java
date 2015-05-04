@@ -63,6 +63,18 @@ public class MainActivity extends ActionBarActivity {
                 setTitle(getString(R.string.transactions));
                 getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment()).commit();
             }
+            if (position == 1) {
+                left_drawer.setItemChecked(position, true);
+                drawerLayout.closeDrawer(left_drawer);
+                setTitle(getString(R.string.categorii));
+                getFragmentManager().beginTransaction().replace(R.id.content_frame, new StatmentFragment()).commit();
+            }
+            if (position == 2) {
+                left_drawer.setItemChecked(position, true);
+                drawerLayout.closeDrawer(left_drawer);
+                setTitle(getString(R.string.statistics));
+                getFragmentManager().beginTransaction().replace(R.id.content_frame, new StatmentFragment()).commit();
+            }
         }
     }
 }
