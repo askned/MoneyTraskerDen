@@ -1,20 +1,28 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/Container.Background">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Container">
 
-    <LinearLayout
-        android:background="#f7f7f7"
+    <include layout="@layout/toolbar" />
+
+    <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        android:background="@android:color/transparent">
 
-        <ListView
-            android:id="@+id/list_view_id"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@color/link_text_material_dark"
-            android:dividerHeight="@dimen/divaderh">
+            android:id="@+id/content_frame"
+            android:background="@color/background" />
 
-        </ListView>
-    </LinearLayout>
+        <ListView
+            android:layout_width="@dimen/drawer_list_width"
+            android:layout_height="match_parent"
+            android:id="@+id/left_drawer"
+            android:layout_gravity="start"
+            android:choiceMode="singleChoice"
+            android:background="@color/background"
+            android:divider="@android:color/transparent" />
 
-
-</RelativeLayout>
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>
