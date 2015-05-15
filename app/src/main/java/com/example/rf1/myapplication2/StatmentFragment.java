@@ -6,19 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by 1 on 04.05.2015.
- */
+
 public class StatmentFragment extends Fragment {
 
-    //   private TextView textStat;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View inflate = inflater.inflate(R.layout.statistics, container, false);
-        return inflate;
+
+        return inflater.inflate(R.layout.statistics, container, false);
     }
 
-    //  public TextView getTextStat() {
-    //      return textStat;
-    //  }
+
 }

@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
         left_drawer = (ListView) findViewById(R.id.left_drawer);
 
 //        String[] navigationData = getResources().getStringArray(R.array.screen_aray);
-        String[] navigationData = new String[]{"Траты", "Категории", "Статистика"};
+        String[] navigationData = new String[]{getString(R.string.transactions), getString(R.string.categorii), getString(R.string.statistics)};
         ArrayAdapter<String> navigationDrawerAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, navigationData);
         left_drawer.setAdapter(navigationDrawerAdapter);
         left_drawer.setOnItemClickListener(new DrawerItemClickListener());
@@ -58,23 +58,27 @@ public class MainActivity extends ActionBarActivity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            if (position == 0) {
+            switch (position) {
+                case 0:
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.transactions));
                 getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment()).commit();
-            }
-            if (position == 1) {
+                    break;
+
+                case 1:
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.categorii));
                 getFragmentManager().beginTransaction().replace(R.id.content_frame, new CategoryFragment()).commit();
-            }
-            if (position == 2) {
+                    break;
+                case 2:
+
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.statistics));
                 getFragmentManager().beginTransaction().replace(R.id.content_frame, new StatmentFragment()).commit();
+                    break;
             }
         }
     }
