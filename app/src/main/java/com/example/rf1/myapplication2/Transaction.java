@@ -6,14 +6,13 @@ package com.example.rf1.myapplication2;
 
  */
 
-public class Transactions {
-    private String title;
-    private int sum;
-    private String date;
+public class Transaction {
+    public String title;
+    public int sum;
+    public String date;
 
 
-
-    public Transactions(String title, String sum, String date) {
+    public Transaction(String title, String sum, String date) {
         this.title = title;
         this.sum = Integer.valueOf(sum);
         this.date = date;

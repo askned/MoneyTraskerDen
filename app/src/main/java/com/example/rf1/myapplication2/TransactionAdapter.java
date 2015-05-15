@@ -1,47 +1,55 @@
 package com.example.rf1.myapplication2;
 
-import android.widget.ArrayAdapter;
-
-import android.content.Context;
-import android.graphics.Color;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
 
-public class TransactionAdapter extends ArrayAdapter<Transactions> {
-    List<Transactions> transactions;
+public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.CardViewHolder> {
+    List<Transaction> transactions;
 
-    public TransactionAdapter(Context context, List<Transactions> transactions) {
-        super(context, 0, transactions);
+    public TransactionAdapter(List<Transaction> transactions) {
+
         this.transactions = transactions;
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
-        Transactions transactions = getItem(position);
+    @Override
+    public CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
 
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
-        }
-        TextView title = (TextView) convertView.findViewById(R.id.title_id);
-        TextView sum = (TextView) convertView.findViewById(R.id.sum_id);
-        TextView date = (TextView) convertView.findViewById(R.id.date_id);
+        return new CardViewHolder(itemView);
+    }
 
-        title.setText(transactions.getTitle());
-        sum.setText(Integer.toString(transactions.getSum()));
-        date.setText(transactions.getDate());
-        String color = "#f9de11";
-        if (position % 3 == 0)
-            color = "#f9de11";
-        else if (position % 2 == 0)
-            color = "#ffd7a0";
-        else
-            color = "#caf8ff";
+    @Override
+    public void onBindViewHolder(CardViewHolder holder, int position) {
+        Transaction transaction = transactions.get(position);
+        holder.name.setText(transaction.title);
+        holder.sum.setText(transaction.sum);
+        holder.date.setText(transaction.date);
 
-        convertView.setBackgroundColor(Color.parseColor(color));
-        return convertView;
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return transactions.size();
+    }
+}
+
+public static class CardViewHolder extends RecyclerView.ViewHolder {
+    protected TextView name;
+    protected TextView sum;
+    protected TextView date;
+
+    public CardViewHolder(View itemView) {
+        super(itemView);
+        name = (TextView) itemView.findViewById(R.id.name);
+        sum = (TextView) itemView.findViewById(R.id.sum);
+        date = (TextView) itemView.findViewById(R.id.date);
+
+    }
     }
 }

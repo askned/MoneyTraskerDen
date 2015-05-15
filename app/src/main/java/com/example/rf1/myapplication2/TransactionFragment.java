@@ -3,10 +3,11 @@ package com.example.rf1.myapplication2;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -18,31 +19,36 @@ import java.util.Locale;
 
 
 public class TransactionFragment extends Fragment {
-    private ListView listView;
+    private RecyclerView recyclerView;
     private TransactionAdapter transactionAdapter;
-    List<Transactions> data = new ArrayList<>();
+    List<Transaction> data = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View inflate = inflater.inflate(R.layout.fragment_transactions, container, false);
-        List<Transactions> adapterData = getDataList();
+        List<Transaction> adapterData = getDataList();
         transactionAdapter = new TransactionAdapter(getActivity(), adapterData);
-        listView = (ListView) inflate.findViewById(R.id.list_view_id);
-        listView.setAdapter(transactionAdapter);
+        recyclerView = (RecyclerView) inflate.findViewById(R.id.transactions_list);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        recyclerView.setAdapter(transactionAdapter);
         return inflate;
     }
 
-    private List<Transactions> getDataList() {
+    private List<Transaction> getDataList() {
         DateFormat df = new SimpleDateFormat("yyyy-MMM-dd", new Locale("ru"));
         Date now_calendar = Calendar.getInstance().getTime();
         String now = df.format(now_calendar);
-        data.add(new Transactions("Huawei", "9800", now));
-        data.add(new Transactions("Samsung", "13000", now));
-        data.add(new Transactions("T-shirt", "300", now));
-        data.add(new Transactions("Jeans", "1500", now));
-        data.add(new Transactions("Printer", "4500", now));
-        data.add(new Transactions("Bigmac", "400", now));
+        data.add(new Transaction("Huawei", "9800", now));
+        data.add(new Transaction("Samsung", "13000", now));
+        data.add(new Transaction("T-shirt", "300", now));
+        data.add(new Transaction("Jeans", "1500", now));
+        data.add(new Transaction("Printer", "4500", now));
+        data.add(new Transaction("Bigmac", "400", now));
         return data;
     }
 }
