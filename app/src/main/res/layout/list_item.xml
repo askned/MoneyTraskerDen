@@ -26,15 +26,18 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/title"/>
 
-        <TextView
+            android:text="@string/title"
+            android:layout_margin="4dp" />
+
+                <TextView
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/textsize"
-            android:text="@string/date"/>
-    </LinearLayout>
+                    android:text="@string/date"
+                    android:layout_margin="4dp" />
+            </LinearLayout>
 
 
     <TextView
