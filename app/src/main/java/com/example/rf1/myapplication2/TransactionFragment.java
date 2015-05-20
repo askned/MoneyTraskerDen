@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.melnykov.fab.FloatingActionButton;
+
 import org.androidannotations.annotations.EFragment;
 
 import java.text.DateFormat;
@@ -30,14 +32,18 @@ public class TransactionFragment extends Fragment {
         List<Transaction> adapterData = getDataList();
         transactionAdapter = new TransactionAdapter(adapterData);
         recyclerView = (RecyclerView) inflate.findViewById(R.id.transactions_list);
+
+        FloatingActionButton fab = (FloatingActionButton) inflate.findViewById(R.id.fab);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         recyclerView.setAdapter(transactionAdapter);
+        fab.attachToRecyclerView(recyclerView);
         return inflate;
     }
+
 
     private List<Transaction> getDataList() {
         DateFormat df = new SimpleDateFormat("yyyy-MMM-dd", new Locale("ru"));

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
     style="@style/Container">
 
     <android.support.v7.widget.CardView
@@ -9,7 +10,8 @@
         android:layout_margin="@dimen/margincard"
         android:layout_marginBottom="@dimen/marditbott"
         card_view:cardBackgroundColor="@color/background"
-        card_view:cardCornerRadius="@dimen/cardradius">
+        card_view:cardCornerRadius="@dimen/cardradius"
+        android:id="@+id/view">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -52,4 +54,5 @@
         android:text="@string/sum"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
+
 </RelativeLayout>
