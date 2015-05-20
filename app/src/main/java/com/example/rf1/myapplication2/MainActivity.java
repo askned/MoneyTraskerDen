@@ -18,15 +18,12 @@ import org.androidannotations.annotations.ViewById;
 public class MainActivity extends ActionBarActivity {
 
     @ViewById
-
     Toolbar toolbar;
 
     @ViewById
-
     DrawerLayout drawerLayout;
 
     @ViewById
-
     ListView left_drawer;
 
     ActionBarDrawerToggle drawerToggle;
@@ -47,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.setDrawerListener(drawerToggle);
 
-        getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
     }
     @Override
@@ -69,21 +66,21 @@ public class MainActivity extends ActionBarActivity {
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.transactions));
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
                     break;
 
                 case 1:
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.categorii));
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, new CategoryFragment()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new CategoryFragment_()).commit();
                     break;
                 case 2:
 
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.statistics));
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, new StatmentFragment()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new StatmentFragment_()).commit();
                     break;
             }
         }

@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.androidannotations.annotations.EFragment;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-
+@EFragment//(R.layout.fragment_transactions)
 public class TransactionFragment extends Fragment {
     private RecyclerView recyclerView;
     private TransactionAdapter transactionAdapter;

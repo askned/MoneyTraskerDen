@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
 
             android:text="@string/title"
-            android:layout_margin="4dp" />
+            android:layout_margin="@dimen/margin4" />
 
                 <TextView
             android:id="@+id/date"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/textsize"
                     android:text="@string/date"
-                    android:layout_margin="4dp" />
+                    android:layout_margin="@dimen/margin4" />
             </LinearLayout>
 
 

@@ -8,6 +8,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/textcategory"
-        android:id="@+id/textStat"
+        android:id="@+id/textCategory"
         android:layout_gravity="bottom|center" />
 </LinearLayout>
