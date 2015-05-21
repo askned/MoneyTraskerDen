@@ -66,21 +66,21 @@ public class MainActivity extends ActionBarActivity {
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.transactions));
-                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, TransactionFragment_.builder().build()).commit();
                     break;
 
                 case 1:
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.categorii));
-                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new CategoryFragment_()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, CategoryFragment_.builder().build()).commit();
                     break;
                 case 2:
 
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.statistics));
-                    getFragmentManager().beginTransaction().replace(R.id.content_frame, new StatmentFragment_()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, StatmentFragment_.builder().build()).commit();
                     break;
             }
         }
