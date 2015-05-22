@@ -10,23 +10,27 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 
+@EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity {
 
-    private Toolbar toolbar;
-    private DrawerLayout drawerLayout;
-    private ListView left_drawer;
-    private ActionBarDrawerToggle drawerToggle;
+    @ViewById
+    Toolbar toolbar;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        left_drawer = (ListView) findViewById(R.id.left_drawer);
+    @ViewById
+    DrawerLayout drawerLayout;
 
-//        String[] navigationData = getResources().getStringArray(R.array.screen_aray);
+    @ViewById
+    ListView left_drawer;
+
+    ActionBarDrawerToggle drawerToggle;
+
+
+    @AfterViews
+    void ready() {
         String[] navigationData = new String[]{getString(R.string.transactions), getString(R.string.categorii), getString(R.string.statistics)};
         ArrayAdapter<String> navigationDrawerAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, navigationData);
         left_drawer.setAdapter(navigationDrawerAdapter);
@@ -40,10 +44,9 @@ public class MainActivity extends ActionBarActivity {
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
         drawerLayout.setDrawerListener(drawerToggle);
 
-        getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
     }
-
     @Override
     public void setTitle(CharSequence title) {
         super.setTitle(title);
@@ -63,23 +66,24 @@ public class MainActivity extends ActionBarActivity {
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.transactions));
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, TransactionFragment_.builder().build()).commit();
                     break;
 
                 case 1:
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.categorii));
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, new CategoryFragment()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, CategoryFragment_.builder().build()).commit();
                     break;
                 case 2:
 
                 left_drawer.setItemChecked(position, true);
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.statistics));
-                getFragmentManager().beginTransaction().replace(R.id.content_frame, new StatmentFragment()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, StatmentFragment_.builder().build()).commit();
                     break;
             }
         }
     }
+
 }
