@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/Container.AddBackground">
+
+    <include layout="@layout/toolbar" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="11"
+        android:layout_margin="4dp"
+
+        android:background="@color/background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Cумма"
+            android:id="@+id/textsum"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:hint="300"
+            android:gravity="fill" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Примечание"
+            android:id="@+id/textdescrip"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:gravity="fill" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Каткгории"
+            android:id="@+id/textcategory"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:gravity="fill" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Дата"
+            android:id="@+id/textdata"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:gravity="fill" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="300"
+            android:id="@+id/sum"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:editable="true"
+            android:gravity="fill"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Warbook"
+            android:id="@+id/title"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:editable="true"
+            android:gravity="fill"
+            android:inputType="text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Books"
+            android:id="@+id/catgory"
+            android:layout_row="2"
+            android:layout_column="2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="now"
+            android:id="@+id/data"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:gravity="fill" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="add"
+            android:id="@+id/buttonadd"
+            android:layout_row="4"
+            android:layout_column="1"
+            android:paddingRight="5dp" />
+    </GridLayout>
+</LinearLayout>

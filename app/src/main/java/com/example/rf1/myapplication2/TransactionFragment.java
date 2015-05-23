@@ -1,6 +1,7 @@
 package com.example.rf1.myapplication2;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -41,9 +42,16 @@ public class TransactionFragment extends Fragment {
 
         recyclerView.setAdapter(transactionAdapter);
         fab.attachToRecyclerView(recyclerView);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AddTransactionctivity_.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
         return inflate;
     }
-
 
     private List<Transaction> getDataList() {
         DateFormat df = new SimpleDateFormat("yyyy-MMM-dd", new Locale("ru"));
