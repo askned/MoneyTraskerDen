@@ -29,8 +29,8 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     public void onBindViewHolder(CardViewHolder holder, int position) {
         Transaction transaction = transactions.get(position);
         holder.name.setText(transaction.title);
-        holder.sum.setText(Integer.toString(transaction.sum));
-        holder.date.setText(transaction.date);
+        holder.sum.setText(transaction.sum);
+        //    holder.date.setText(transaction.date);
 
     }
 

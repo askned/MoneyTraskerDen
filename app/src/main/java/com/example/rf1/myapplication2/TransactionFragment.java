@@ -13,13 +13,8 @@ import com.melnykov.fab.FloatingActionButton;
 
 import org.androidannotations.annotations.EFragment;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 @EFragment//(R.layout.fragment_transactions)
 public class TransactionFragment extends Fragment {
@@ -30,8 +25,8 @@ public class TransactionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View inflate = inflater.inflate(R.layout.fragment_transactions, container, false);
-        List<Transaction> adapterData = getDataList();
-        transactionAdapter = new TransactionAdapter(adapterData);
+        //    List<Transaction> adapterData = getDataList();
+        //      transactionAdapter = new TransactionAdapter(adapterData);
         recyclerView = (RecyclerView) inflate.findViewById(R.id.transactions_list);
 
         FloatingActionButton fab = (FloatingActionButton) inflate.findViewById(R.id.fab);
@@ -53,16 +48,11 @@ public class TransactionFragment extends Fragment {
         return inflate;
     }
 
-    private List<Transaction> getDataList() {
-        DateFormat df = new SimpleDateFormat("yyyy-MMM-dd", new Locale("ru"));
-        Date now_calendar = Calendar.getInstance().getTime();
-        String now = df.format(now_calendar);
-        data.add(new Transaction("Huawei", "9800", now));
-        data.add(new Transaction("Samsung", "13000", now));
-        data.add(new Transaction("T-shirt", "300", now));
-        data.add(new Transaction("Jeans", "1500", now));
-        data.add(new Transaction("Printer", "4500", now));
-        data.add(new Transaction("Bigmac", "400", now));
-        return data;
-    }
+    //  private List<Transaction> getDataList(){
+    //     return new Select()
+    //           .from(Transaction.class)
+    //              .where("Category = ?", category.getId())
+    //            .orderBy("Name ASC")
+    //         .execute();
+    //  }
 }
