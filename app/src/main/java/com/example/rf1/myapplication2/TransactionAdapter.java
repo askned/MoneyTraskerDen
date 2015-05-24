@@ -30,6 +30,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         Transaction transaction = transactions.get(position);
         holder.name.setText(transaction.title);
         holder.sum.setText(Integer.toString(transaction.sum));
+        holder.date.setText(transaction.date);
 
     }
 
@@ -43,11 +44,13 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
         protected TextView name;
         protected TextView sum;
+        protected TextView date;
 
         public CardViewHolder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.name);
             sum = (TextView) itemView.findViewById(R.id.sum);
+            date = (TextView) itemView.findViewById(R.id.date);
         }
     }
 }
