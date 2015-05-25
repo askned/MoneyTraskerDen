@@ -8,7 +8,7 @@ import com.activeandroid.annotation.Table;
 import java.util.Date;
 
 
-@Table(name = "Transaction")
+@Table(name = "DBTransaction")
 public class Transaction extends Model {
     @Column(name = "title")
     public String title;

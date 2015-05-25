@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.activeandroid.query.Select;
 import com.melnykov.fab.FloatingActionButton;
 
 import org.androidannotations.annotations.EFragment;
@@ -25,8 +26,8 @@ public class TransactionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View inflate = inflater.inflate(R.layout.fragment_transactions, container, false);
-        //    List<Transaction> adapterData = getDataList();
-        //      transactionAdapter = new TransactionAdapter(adapterData);
+        List<Transaction> adapterData = getDataList();
+        transactionAdapter = new TransactionAdapter(adapterData);
         recyclerView = (RecyclerView) inflate.findViewById(R.id.transactions_list);
 
         FloatingActionButton fab = (FloatingActionButton) inflate.findViewById(R.id.fab);
@@ -48,11 +49,11 @@ public class TransactionFragment extends Fragment {
         return inflate;
     }
 
-    //  private List<Transaction> getDataList(){
-    //     return new Select()
-    //           .from(Transaction.class)
+    private List<Transaction> getDataList() {
+        return new Select()
+                .from(Transaction.class)
     //              .where("Category = ?", category.getId())
     //            .orderBy("Name ASC")
-    //         .execute();
-    //  }
+                .execute();
+    }
 }
