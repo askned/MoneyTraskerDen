@@ -20,7 +20,7 @@
         <activity android:name=".AddTransactionctivity_">
             <meta-data
                 android:name="android.support.Parent_Activity"
-                android:value=".MainActivity" />
+                android:value="com.example.rf1.myapplication2.MainActivity" />
 
 
         </activity>

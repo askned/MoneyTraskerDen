@@ -2,11 +2,13 @@ package com.example.rf1.myapplication2;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.ViewById;
 
 
@@ -17,26 +19,34 @@ public class AddTransactionctivity extends ActionBarActivity {
     Toolbar toolbar;
 
     @ViewById
-    TextView sum, title;
+    EditText sum, title;
 
     @AfterViews
     void ready() {
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.add_transactions));
+
+        //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
+    @Click
+    void buttonadd() {
+        if (title.getText().length() != 0 && sum.getText().length() != 0) {
+            new Transaction(title.getText().toString(), sum.getText().toString()).save();
+            finish();
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(),
+                    getString(R.string.tosterror), Toast.LENGTH_SHORT);
+            toast.show();
 
-            default:
-                return super.onOptionsItemSelected(item);
         }
+    }
+
+    @OptionsItem
+    void homeSelected() {
+        onBackPressed();
     }
 }
 

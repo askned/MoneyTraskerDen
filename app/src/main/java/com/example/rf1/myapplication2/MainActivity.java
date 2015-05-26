@@ -46,8 +46,7 @@ public class MainActivity extends ActionBarActivity {
 
         getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
-        Transaction transaction = new Transaction("soft", "200");
-        transaction.save();
+
     }
     @Override
     public void setTitle(CharSequence title) {
