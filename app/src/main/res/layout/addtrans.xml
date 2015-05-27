@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:columnCount="4"
         android:rowCount="11"
-        android:layout_margin="4dp"
+        android:layout_margin="@dimen/laymarg"
 
         android:background="@color/background">
 
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Cумма"
+            android:text="@string/summa"
             android:id="@+id/textsum"
             android:layout_row="0"
             android:layout_column="1"
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Примечание"
+            android:text="@string/noting"
             android:id="@+id/textdescrip"
             android:layout_row="1"
             android:layout_column="1"
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Каткгории"
+            android:text="@string/categorii"
             android:id="@+id/textcategory"
             android:layout_row="2"
             android:layout_column="1"
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Дата"
+            android:text="@string/datta"
             android:id="@+id/textdata"
             android:layout_row="3"
             android:layout_column="1"
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Warbook"
+            android:text="@string/defaulttext"
             android:id="@+id/title"
             android:layout_row="1"
             android:layout_column="2"
@@ -105,6 +105,6 @@
             android:id="@+id/buttonadd"
             android:layout_row="4"
             android:layout_column="1"
-            android:paddingRight="5dp" />
+            android:paddingRight="@dimen/pendrig" />
     </GridLayout>
 </LinearLayout>
