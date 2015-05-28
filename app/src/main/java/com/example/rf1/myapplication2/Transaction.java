@@ -1,40 +1,31 @@
 package com.example.rf1.myapplication2;
 
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
 
-/**
+import java.util.Date;
 
- */
 
-public class Transaction {
+@Table(name = "DBTransaction")
+public class Transaction extends Model {
+    @Column(name = "title")
     public String title;
-    public int sum;
-    public String date;
+    @Column(name = "sum")
+    public String sum;
+    @Column(name = "date")
+    public Date date;
 
+    public Transaction() {
+    }
 
-    public Transaction(String title, String sum, String date) {
+    public Transaction(String title, String sum) {
         this.title = title;
-        this.sum = Integer.valueOf(sum);
-        this.date = date;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getSum() {
-        return sum;
-    }
-
-    public void setSum(int sum) {
+        //   this.sum = Integer.valueOf(sum);
         this.sum = sum;
+        date = new Date();
     }
 
-    public String getDate() {
-        return date;
-    }
 }
+

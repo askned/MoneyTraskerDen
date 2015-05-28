@@ -20,6 +20,7 @@ android {
     }
 }
 dependencies {
+    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'com.android.support:support-v4:22.0.0'
@@ -44,8 +45,12 @@ apt {
         // logFile '/var/log/aa.log'
     }
 }
+repositories {
 
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
 buildscript {
+
     repositories {
         mavenCentral()
     }
