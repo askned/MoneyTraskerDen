@@ -10,21 +10,21 @@ import java.util.Date;
 
 @Table(name = "DBTransaction")
 public class Transaction extends Model {
-    @Column(name = "title")
-    public String title;
+    @Column(name = "comment")
+    public String comment;
     @Column(name = "sum")
     public String sum;
-    @Column(name = "date")
-    public Date date;
+    @Column(name = "trDate")
+    public Date trDate;
 
     public Transaction() {
     }
 
-    public Transaction(String title, String sum) {
-        this.title = title;
+    public Transaction(String comment, String sum) {
+        this.comment = comment;
         //   this.sum = Integer.valueOf(sum);
         this.sum = sum;
-        date = new Date();
+        trDate = new Date();
     }
 
 }

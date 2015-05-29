@@ -66,11 +66,11 @@
     </style>
 
     <style name="ToolbarColors" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- android:textColorPrimary is the  color of the title text
+        <!-- android:textColorPrimary is the  color of the comment text
              in the Toolbar, in the Theme.AppCompat theme:  -->
         <item name="android:textColorPrimary">@color/abc_primary_text_material_dark</item>
 
-        <!-- android:textColorPrimaryInverse is the  color of the title
+        <!-- android:textColorPrimaryInverse is the  color of the comment
              text in the Toolbar, in the Theme.AppCompat.Light theme:  -->
         <!--<item name="android:textColorPrimaryInverse">@color/abc_primary_text_material_dark</item>-->
 
