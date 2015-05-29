@@ -14,8 +14,8 @@ public class Transaction extends Model {
     public String comment;
     @Column(name = "sum")
     public String sum;
-    @Column(name = "trDate")
-    public Date trDate;
+    @Column(name = "date")
+    public Date date;
 
     public Transaction() {
     }
@@ -24,7 +24,7 @@ public class Transaction extends Model {
         this.comment = comment;
         //   this.sum = Integer.valueOf(sum);
         this.sum = sum;
-        trDate = new Date();
+        date = new Date();
     }
 
 }

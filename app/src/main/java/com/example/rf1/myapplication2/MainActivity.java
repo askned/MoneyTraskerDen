@@ -11,7 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.rf1.myapplication2.rest.AuthResult;
+import com.example.rf1.myapplication2.rest.AuthenticatorInterceptor;
 import com.example.rf1.myapplication2.rest.RestClient;
+import com.example.rf1.myapplication2.rest.Result;
+import com.example.rf1.myapplication2.rest.TransactionRes;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -60,6 +63,10 @@ public class MainActivity extends ActionBarActivity {
     @Background
     void Testnet() {
         final AuthResult login = api.login("den", "1");
+        AuthenticatorInterceptor.authToken = login.authToken;
+        api.addCategory("first");
+        final Result result = api.addTransactions(100, "airplane", "2015-05-25");
+        final TransactionRes transactions = api.getTransactions();
     }
 
     @Override

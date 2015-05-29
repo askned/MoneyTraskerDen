@@ -2,6 +2,7 @@ package com.example.rf1.myapplication2.rest;
 
 
 import org.androidannotations.annotations.rest.Get;
+import org.androidannotations.annotations.rest.Post;
 import org.androidannotations.annotations.rest.Rest;
 
 @Rest(rootUrl = "http://62.109.17.114/", converters = MessageConverter.class, interceptors = AuthenticatorInterceptor.class)
@@ -13,5 +14,10 @@ public interface RestClient {
     @Get("/transactions")
     TransactionRes getTransactions();
 
-    @Get("/transactions")
+    @Post("/transactions/add?sum={sum}&comment={comment}&tr_date={date}&category_id=1")
+    Result addTransactions(int sum, String comment, String date);
+
+
+    @Post("/categories/add?title={title}")
+    Result addCategory(String title);
 }

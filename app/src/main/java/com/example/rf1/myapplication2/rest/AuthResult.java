@@ -5,5 +5,5 @@ public class AuthResult extends Result {
 
 
     int id;
-    String authToken;
+    public String authToken;
 }

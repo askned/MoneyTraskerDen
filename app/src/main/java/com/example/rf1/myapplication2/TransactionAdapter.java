@@ -30,7 +30,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         Transaction transaction = transactions.get(position);
         holder.name.setText(transaction.comment);
         holder.sum.setText(transaction.sum);
-        holder.date.setText(String.valueOf(transaction.trDate));
+        holder.date.setText(String.valueOf(transaction.date));
 
     }
 

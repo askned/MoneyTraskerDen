@@ -79,7 +79,7 @@ public class TransactionFragment extends Fragment {
         return new Select()
                 .from(Transaction.class)
     //              .where("Category = ?", category.getId())
-                .orderBy("trDate DESC")
+                .orderBy("date DESC")
                 .execute();
     }
 }
