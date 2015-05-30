@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddTransactionctivity_">
+        <activity android:name=".AddTransactionActivity_">
             <meta-data
                 android:name="android.support.Parent_Activity"
                 android:value="com.example.rf1.myapplication2.MainActivity" />

@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/defaulttext"
-            android:id="@+id/comment"
+            android:id="@+id/title"
             android:layout_row="1"
             android:layout_column="2"
             android:gravity="fill"

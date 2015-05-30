@@ -13,7 +13,7 @@ import org.androidannotations.annotations.ViewById;
 
 
 @EActivity(R.layout.addtrans)
-public class AddTransactionctivity extends ActionBarActivity {
+public class AddTransactionActivity extends ActionBarActivity {
 
     @ViewById
     Toolbar toolbar;

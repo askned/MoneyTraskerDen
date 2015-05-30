@@ -10,8 +10,8 @@ import java.util.Date;
 
 @Table(name = "DBTransaction")
 public class Transaction extends Model {
-    @Column(name = "comment")
-    public String comment;
+    @Column(name = "title")
+    public String title;
     @Column(name = "sum")
     public String sum;
     @Column(name = "date")
@@ -20,8 +20,8 @@ public class Transaction extends Model {
     public Transaction() {
     }
 
-    public Transaction(String comment, String sum) {
-        this.comment = comment;
+    public Transaction(String title, String sum) {
+        this.title = title;
         //   this.sum = Integer.valueOf(sum);
         this.sum = sum;
         date = new Date();

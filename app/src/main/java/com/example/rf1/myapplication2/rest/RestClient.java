@@ -14,10 +14,10 @@ public interface RestClient {
     @Get("/transactions")
     TransactionRes getTransactions();
 
-    @Post("/transactions/add?sum={sum}&comment={comment}&tr_date={date}&category_id=1")
-    Result addTransactions(int sum, String comment, String date);
+    @Post("/transactions/add?sum={sum}&comment={title}&tr_date={date}&category_id=1")
+    Result addTransactions(int sum, String title, String date);
 
 
-    @Post("/categories/add?title={title}")
+    @Post("/categories/add?comment={title}")
     Result addCategory(String title);
 }
