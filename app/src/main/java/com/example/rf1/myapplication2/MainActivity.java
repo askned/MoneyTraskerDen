@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.rf1.myapplication2.auth.SessionManager;
 import com.example.rf1.myapplication2.rest.AuthResult;
 import com.example.rf1.myapplication2.rest.AuthenticatorInterceptor;
 import com.example.rf1.myapplication2.rest.RestClient;
@@ -18,6 +19,7 @@ import com.example.rf1.myapplication2.rest.TransactionRes;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.rest.RestService;
@@ -36,6 +38,9 @@ public class MainActivity extends ActionBarActivity {
 
     @RestService
     RestClient api;
+
+    @Bean
+    SessionManager sessionManager;
 
     ActionBarDrawerToggle drawerToggle;
 
@@ -63,6 +68,7 @@ public class MainActivity extends ActionBarActivity {
     @Background
     void testNet() {
         final AuthResult login = api.login("den", "1");
+        sessionManager.createAccount("den", login.authToken);
         AuthenticatorInterceptor.authToken = login.authToken;
         api.addCategory("second");
         api.addBalance(100000);

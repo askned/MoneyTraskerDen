@@ -22,7 +22,6 @@ public class Transaction extends Model {
 
     public Transaction(String title, String sum) {
         this.title = title;
-        //   this.sum = Integer.valueOf(sum);
         this.sum = sum;
         date = new Date();
     }
