@@ -65,6 +65,7 @@ public class MainActivity extends ActionBarActivity {
         final AuthResult login = api.login("den", "1");
         AuthenticatorInterceptor.authToken = login.authToken;
         api.addCategory("second");
+        api.addBalance(100000);
         final Result result = api.addTransactions(2200, "airplane", "2015-05-25");
         final TransactionRes transactions = api.getTransactions();
     }

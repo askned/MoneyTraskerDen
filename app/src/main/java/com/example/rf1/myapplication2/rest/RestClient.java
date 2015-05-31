@@ -20,4 +20,8 @@ public interface RestClient {
 
     @Post("/categories/add?title={title}")
     Result addCategory(String title);
+
+
+    @Post("/balance?set={balance}")
+    Result addBalance(int balance);
 }
