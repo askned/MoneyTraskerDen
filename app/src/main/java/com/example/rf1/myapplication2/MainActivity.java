@@ -64,8 +64,8 @@ public class MainActivity extends ActionBarActivity {
     void Testnet() {
         final AuthResult login = api.login("den", "1");
         AuthenticatorInterceptor.authToken = login.authToken;
-        api.addCategory("first");
-        final Result result = api.addTransactions(100, "airplane", "2015-05-25");
+        api.addCategory("second");
+        final Result result = api.addTransactions(2200, "airplane", "2015-05-25");
         final TransactionRes transactions = api.getTransactions();
     }
 

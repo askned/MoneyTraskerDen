@@ -18,6 +18,6 @@ public interface RestClient {
     Result addTransactions(int sum, String title, String date);
 
 
-    @Post("/categories/add?comment={title}")
+    @Post("/categories/add?title={title}")
     Result addCategory(String title);
 }
