@@ -10,9 +10,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.rf1.myapplication2.rest.AuthResult;
+import com.example.rf1.myapplication2.rest.AuthenticatorInterceptor;
+import com.example.rf1.myapplication2.rest.RestClient;
+import com.example.rf1.myapplication2.rest.Result;
+import com.example.rf1.myapplication2.rest.TransactionRes;
+
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.rest.RestService;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity {
@@ -25,6 +33,9 @@ public class MainActivity extends ActionBarActivity {
 
     @ViewById
     ListView left_drawer;
+
+    @RestService
+    RestClient api;
 
     ActionBarDrawerToggle drawerToggle;
 
@@ -46,8 +57,19 @@ public class MainActivity extends ActionBarActivity {
 
         getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
-
+        testNet();
     }
+
+    @Background
+    void testNet() {
+        final AuthResult login = api.login("den", "1");
+        AuthenticatorInterceptor.authToken = login.authToken;
+        api.addCategory("second");
+        api.addBalance(100000);
+        final Result result = api.addTransactions(2200, "airplane", "2015-05-25");
+        final TransactionRes transactions = api.getTransactions();
+    }
+
     @Override
     public void setTitle(CharSequence title) {
         super.setTitle(title);

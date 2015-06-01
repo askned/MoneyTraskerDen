@@ -24,7 +24,7 @@ public class TransactionFragment extends Fragment {
     @ViewById(R.id.transactions_list)
     RecyclerView recyclerView;
 
-    TransactionAdapter transactionAdapter;
+    //  TransactionAdapter transactionAdapter;
 
     @ViewById
     FloatingActionButton fab;
@@ -72,7 +72,7 @@ public class TransactionFragment extends Fragment {
 
     @Click
     void fabClicked() {
-        AddTransactionctivity_.intent(getActivity()).start();
+        AddTransactionActivity_.intent(getActivity()).start();
     }
 
     private List<Transaction> getDataList() {
