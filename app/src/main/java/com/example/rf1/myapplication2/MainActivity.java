@@ -57,11 +57,11 @@ public class MainActivity extends ActionBarActivity {
 
         getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
-        Testnet();
+        testNet();
     }
 
     @Background
-    void Testnet() {
+    void testNet() {
         final AuthResult login = api.login("den", "1");
         AuthenticatorInterceptor.authToken = login.authToken;
         api.addCategory("second");
