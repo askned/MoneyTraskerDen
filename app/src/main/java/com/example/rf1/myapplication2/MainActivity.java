@@ -65,6 +65,11 @@ public class MainActivity extends ActionBarActivity {
         testNet();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     @Background
     void testNet() {
         final AuthResult login = api.login("den", "1");

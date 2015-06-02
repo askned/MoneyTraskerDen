@@ -6,9 +6,8 @@ import android.os.IBinder;
 
 
 public class AuthService extends Service {
-
     @Override
     public IBinder onBind(Intent intent) {
-        return new Authonticator(this).getIBinder();
+        return new Authenticator(this).getIBinder();
     }
 }
