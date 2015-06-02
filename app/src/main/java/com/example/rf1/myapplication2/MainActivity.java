@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.rf1.myapplication2.auth.SessionManager;
-import com.example.rf1.myapplication2.rest.AuthResult;
 import com.example.rf1.myapplication2.rest.AuthenticatorInterceptor;
 import com.example.rf1.myapplication2.rest.RestClient;
 import com.example.rf1.myapplication2.rest.Result;
@@ -72,7 +71,7 @@ public class MainActivity extends ActionBarActivity {
 
     @Background
     void testNet() {
-        final AuthResult login = api.login("den", "1");
+
         sessionManager.createAccount("den", login.authToken);
         AuthenticatorInterceptor.authToken = login.authToken;
         api.addCategory("second");
