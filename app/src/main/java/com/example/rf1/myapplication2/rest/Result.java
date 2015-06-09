@@ -8,7 +8,7 @@ import android.text.TextUtils;
 public class Result {
     String status;
 
-    public boolean isSuccess() {
+    public boolean isSuccessfull() {
         return TextUtils.equals(status, "success");
     }
 }

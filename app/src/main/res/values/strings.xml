@@ -27,4 +27,5 @@
     <string name="noting">Примечание</string>
     <string name="datta">Дата</string>
     <string name="defaulttext">Books</string>
+    <string name="login_error">Ошибка логина</string>
 </resources>

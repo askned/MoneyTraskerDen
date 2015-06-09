@@ -11,15 +11,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.rf1.myapplication2.auth.SessionManager;
-import com.example.rf1.myapplication2.rest.AuthenticatorInterceptor;
 import com.example.rf1.myapplication2.rest.RestClient;
-import com.example.rf1.myapplication2.rest.Result;
 import com.example.rf1.myapplication2.rest.TransactionRes;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.rest.RestService;
 
@@ -64,19 +63,25 @@ public class MainActivity extends ActionBarActivity {
         testNet();
     }
 
+    @Receiver(actions = {SessionManager.SESSION_OPENED_BROADCAST}, registerAt = Receiver.RegisterAt.OnResumeOnPause, local = true)
+    void onSessionOpen() {
+        testNet();
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
+        sessionManager.login(this);
     }
 
     @Background
     void testNet() {
 
-        sessionManager.createAccount("den", login.authToken);
-        AuthenticatorInterceptor.authToken = login.authToken;
-        api.addCategory("second");
-        api.addBalance(100000);
-        final Result result = api.addTransactions(2200, "airplane", "2015-05-25");
+        //    sessionManager.createAccount("den", login.authToken);
+        //   AuthenticatorInterceptor.authToken = login.authToken;
+        //   api.addCategory("second");
+        //      api.addBalance(100000);
+        //    final Result result = api.addTransactions(2200, "airplane", "2015-05-25");
         final TransactionRes transactions = api.getTransactions();
     }
 

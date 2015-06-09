@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import com.example.rf1.myapplication2.LoginActivity_;
+
 
 public class Authenticator extends AbstractAccountAuthenticator {
     private final Context context;
