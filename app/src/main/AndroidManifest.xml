@@ -23,8 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity_" />
-        <activity android:name=".AddTransactionActivity_">
+        <activity android:name="com.example.rf1.myapplication2.LoginActivity_" />
+        <activity android:name="com.example.rf1.myapplication2.AddTransactionActivity_">
             <meta-data
                 android:name="android.support.Parent_Activity"
                 android:value="com.example.rf1.myapplication2.MainActivity" />
