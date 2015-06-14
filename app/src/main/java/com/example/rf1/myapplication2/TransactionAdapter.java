@@ -128,7 +128,7 @@ public class TransactionAdapter extends SelectableAdapter<TransactionAdapter.Car
             return false;
         }
 
-        public interface clickListener {
+        public interface ClickListener {
             public void onItemClicked(int position);
 
             public boolean onItemLongClicked(int position);
