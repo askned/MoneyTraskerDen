@@ -12,6 +12,12 @@
         <item name="android:orientation">vertical</item>
     </style>
 
+    <style name="Edit">
+        <item name="android:textColor">@color/green</item>
+        <!--<item name="android:textColorHint">@color/hint</item>-->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
     <style name="Container.Background">
         <item name="android:background">@drawable/android_app_back_main</item>
     </style>
@@ -92,4 +98,7 @@
         <!--<item name="android:background">@color/color_primary</item> -->
     </style>
 
+    <style name="Container.DarkBackground">
+        <item name="android:background">@drawable/android_app_back</item>
+    </style>
 </resources>

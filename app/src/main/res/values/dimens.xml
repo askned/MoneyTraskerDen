@@ -13,4 +13,7 @@
     <dimen name="margin4">4dp</dimen>
     <dimen name="pendrig">5dp</dimen>
     <dimen name="laymarg">4dp</dimen>
+    <dimen name="button_margin">4dp</dimen>
+    <dimen name="padding_large">5dp</dimen>
+    <dimen name="padding_medium">5dp</dimen>
 </resources>
