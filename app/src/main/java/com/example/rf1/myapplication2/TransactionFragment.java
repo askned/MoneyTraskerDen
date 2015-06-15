@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.activeandroid.query.Select;
 import com.melnykov.fab.FloatingActionButton;
@@ -17,11 +18,14 @@ import com.melnykov.fab.FloatingActionButton;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.OptionsMenu;
+import org.androidannotations.annotations.OptionsMenuItem;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.List;
 
 @EFragment(R.layout.fragment_transactions)
+@OptionsMenu(R.menu.menu_transactions)
 public class TransactionFragment extends Fragment {
     private TransactionAdapter adapter;
     private android.support.v7.view.ActionMode actionMode;
@@ -33,6 +37,11 @@ public class TransactionFragment extends Fragment {
     @ViewById
     FloatingActionButton fab;
 
+    @OptionsMenuItem
+    MenuItem menuSearch;
+
+
+
     @AfterViews
     void ready() {
         recyclerView.setHasFixedSize(true);
@@ -40,6 +49,24 @@ public class TransactionFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         fab.attachToRecyclerView(recyclerView);
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+        final SearchView searchView = (SearchView) menuSearch.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                loadData(newText);
+                return true;
+            }
+        });
     }
 
     public void onResume() {
@@ -149,4 +176,31 @@ public class TransactionFragment extends Fragment {
             actionMode = null;
         }
     }
+
+    private void loadData(final String filter) {
+        getLoaderManager().restartLoader(0, null, new LoaderManager.LoaderCallbacks<List<Transaction>>() {
+            @Override
+            public Loader<List<Transaction>> onCreateLoader(int id, Bundle args) {
+                final AsyncTaskLoader<List<Transaction>> transactionsLoader = new AsyncTaskLoader<List<Transaction>>(getActivity()) {
+                    @Override
+                    public List<Transaction> loadInBackground() {
+                        return Transaction.getAll(filter);
+                    }
+                };
+                transactionsLoader.forceLoad();
+                return transactionsLoader;
+            }
+
+            @Override
+            public void onLoadFinished(Loader<List<Transaction>> loader, List<Transaction> data) {
+                recyclerView.setAdapter(new TransactionAdapter(data));
+            }
+
+            @Override
+            public void onLoaderReset(Loader<List<Transaction>> loader) {
+            }
+        });
+    }
+
+
 }

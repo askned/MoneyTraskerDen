@@ -23,6 +23,13 @@ public class TransactionAdapter extends SelectableAdapter<TransactionAdapter.Car
         //      this.clickListener = this.clickListener;
     }
 
+    public TransactionAdapter(List<Transaction> transactions) {
+
+        this.transactions = transactions;
+
+        //      this.clickListener = this.clickListener;
+    }
+
 
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
