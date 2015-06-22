@@ -5,6 +5,7 @@ import android.app.LoaderManager;
 import android.content.AsyncTaskLoader;
 import android.content.Loader;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -37,6 +38,9 @@ public class TransactionFragment extends Fragment {
     @ViewById
     FloatingActionButton fab;
 
+    @ViewById(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout msSwipeRefreshLayout;
+
     @OptionsMenuItem
     MenuItem menuSearch;
 
@@ -49,6 +53,14 @@ public class TransactionFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         fab.attachToRecyclerView(recyclerView);
+        msSwipeRefreshLayout.setColorSchemeColors(R.color.green_refresh, R.color.orange, R.color.blue);
+        msSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadData("");
+
+            }
+        });
     }
 
     @Override
@@ -86,7 +98,8 @@ public class TransactionFragment extends Fragment {
 
             @Override
             public void onLoadFinished(Loader<List<Transaction>> loader, List<Transaction> data) {
-                adapter = (new TransactionAdapter(data, new TransactionAdapter.CardViewHolder.ClickListener() {
+                msSwipeRefreshLayout.setRefreshing(false);
+                adapter = (new TransactionAdapter(data, getActivity(), new TransactionAdapter.CardViewHolder.ClickListener() {
 
                     @Override
                     public void onItemClicked(int position) {
@@ -134,6 +147,7 @@ public class TransactionFragment extends Fragment {
     @Click
     void fabClicked() {
         AddTransactionActivity_.intent(getActivity()).start();
+        getActivity().overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
     }
 
     private List<Transaction> getDataList() {

@@ -12,7 +12,6 @@ import android.widget.ListView;
 
 import com.example.rf1.myapplication2.auth.SessionManager;
 import com.example.rf1.myapplication2.rest.RestClient;
-import com.example.rf1.myapplication2.rest.TransactionRes;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -78,14 +77,16 @@ public class MainActivity extends ActionBarActivity {
     @Background
     void testNet() {
 
+        sessionManager.createAccount("den", "1");
 
-        //   final AuthResult login = api.login("den", "1");
-        //  AuthenticatorInterceptor.authToken = login.authToken;
+        //    final AuthResult login = api.login("den", "1");
+
+        // AuthenticatorInterceptor.authToken = login.authToken;
         //    api.addCategory("1second");
         //         api.addBalance(100000);
         //   final Result result = api.addTransactions(2200, "airplane", "2015-05-25");
 
-        final TransactionRes transactions = api.getTransactions();
+        //    final TransactionRes transactions = api.getTransactions();
     }
 
     @Override
@@ -101,7 +102,7 @@ public class MainActivity extends ActionBarActivity {
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
-        //    sessionManager.createAccount("den", "1");
+
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             switch (position) {
                 case 0:

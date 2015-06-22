@@ -11,4 +11,9 @@
         android:text="@string/text_statpage"
         android:id="@+id/textStat"
         android:layout_gravity="bottom|center" />
+
+    <com.example.rf1.myapplication2.PieChartView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/piechart" />
 </LinearLayout>
