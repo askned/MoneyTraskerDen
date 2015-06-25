@@ -12,6 +12,8 @@ import android.widget.ListView;
 
 import com.example.rf1.myapplication2.auth.SessionManager;
 import com.example.rf1.myapplication2.rest.RestClient;
+import com.example.rf1.myapplication2.rest.Result;
+import com.example.rf1.myapplication2.rest.TransactionsResult;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -59,11 +61,11 @@ public class MainActivity extends ActionBarActivity {
 
         getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
-        testNet();
+        //  testNet();
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         sessionManager.login(this);
     }
@@ -77,16 +79,16 @@ public class MainActivity extends ActionBarActivity {
     @Background
     void testNet() {
 
-        sessionManager.createAccount("den", "1");
+        //     sessionManager.createAccount("den", "1");
 
         //    final AuthResult login = api.login("den", "1");
 
         // AuthenticatorInterceptor.authToken = login.authToken;
         //    api.addCategory("1second");
         //         api.addBalance(100000);
-        //   final Result result = api.addTransactions(2200, "airplane", "2015-05-25");
+        final Result result = api.addTransactions(999, "airplane", "2015-05-25");
+        final TransactionsResult transactionsResult = api.getTransactions();
 
-        //    final TransactionRes transactions = api.getTransactions();
     }
 
     @Override

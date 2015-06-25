@@ -12,7 +12,8 @@ public interface RestClient {
     AuthResult login(CharSequence login, CharSequence password);
 
     @Get("/transactions")
-    TransactionRes getTransactions();
+    TransactionsResult getTransactions();
+
 
     @Post("/transactions/add?sum={sum}&comment={title}&tr_date={date}&category_id=1")
     Result addTransactions(int sum, String title, String date);

@@ -5,6 +5,6 @@ import com.example.rf1.myapplication2.Transaction;
 /**
  * Created by 1 on 29.05.2015.
  */
-public class TransactionRes extends Result {
+public class TransactionsResult extends Result {
    Transaction[] data;
 }

@@ -2,7 +2,7 @@ package com.example.rf1.myapplication2;
 
 import android.accounts.AccountAuthenticatorActivity;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rf1.myapplication2.auth.SessionManager;
@@ -28,7 +28,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
     SessionManager sessionManager;
 
     @ViewById
-    EditText logintx, passtx;
+    TextView logintx, passtx;
 
     @Click
     void button_login() {
