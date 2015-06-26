@@ -1,16 +1,17 @@
 package com.example.rf1.myapplication2.auth;
+
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-import android.content.ContentResolver;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EBean;
@@ -80,7 +81,7 @@ public class SessionManager {
         final String token = result.getString(AccountManager.KEY_AUTHTOKEN);
         authToken = token;
         Log.d(LOG_TAG, "restoreAccount authToken:" + token);
-        LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(SESSION_OPENED_BROADCAST
+        LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(SESSION_OPENED_BROADCAST));
         if (!isSynced)
             sync();
     }

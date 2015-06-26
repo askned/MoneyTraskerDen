@@ -43,24 +43,26 @@
             <meta-data
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator" />
-        </service
-        
+        </service>
+
         <service
-+            android:name=".sync.SyncService"
-+            android:exported="false">
-+            <intent-filter>
-+                <action android:name="android.content.SyncAdapter" />
-+            </intent-filter>
-+
-+            <meta-data
-+                android:name="android.content.SyncAdapter"
-+                android:resource="@xml/sync_adapter" />
-+        </service>
-+        <provider
-+            android:name=".sync.StubContentProvider"
-+            android:authorities="com.example.rf1.myapplication2"
-+            android:exported="false"
-+            android:syncable="true" />
+            android:name=".sync.SyncService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_adapter" />
+        </service>
+
+        <provider
+            android:name=".sync.StubContentProvider"
+            android:authorities="com.my.moneytracker"
+            android:exported="false"
+            android:syncable="true" />
+
     </application>
 
 </manifest>

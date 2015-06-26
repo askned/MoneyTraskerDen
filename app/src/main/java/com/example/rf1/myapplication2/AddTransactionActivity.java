@@ -34,7 +34,7 @@ public class AddTransactionActivity extends ActionBarActivity {
     @Click
     void buttonadd() {
         if (title.getText().length() != 0 && sum.getText().length() != 0) {
-            new Transaction(title.getText().toString(), sum.getText().toString()).save();
+            new Transaction(title.getText().toString(), Integer.valueOf(sum.getText().toString())).save();
             finish();
         } else {
             Toast toast = Toast.makeText(getApplicationContext(),

@@ -48,7 +48,7 @@ public class TransactionAdapter extends SelectableAdapter<TransactionAdapter.Car
     public void onBindViewHolder(CardViewHolder holder, int position) {
         Transaction transaction = transactions.get(position);
         holder.name.setText(transaction.title);
-        holder.sum.setText(transaction.sum);
+        holder.sum.setText(String.valueOf(transaction.sum));
         holder.date.setText(String.valueOf(transaction.date));
         holder.selected.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
         setAnimation(holder.cardView, position);
