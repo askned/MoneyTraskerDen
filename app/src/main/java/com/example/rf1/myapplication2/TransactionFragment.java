@@ -105,7 +105,7 @@ public class TransactionFragment extends Fragment {
                 final AsyncTaskLoader<List<Transaction>> transactionsLoader = new AsyncTaskLoader<List<Transaction>>(getActivity()) {
                     @Override
                     public List<Transaction> loadInBackground() {
-                        return getDataList();
+                        return Transaction.getAll();
                     }
                 };
                 transactionsLoader.forceLoad();
