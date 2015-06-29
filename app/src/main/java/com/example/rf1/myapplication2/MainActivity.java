@@ -10,15 +10,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.rf1.myapplication2.rest.AuthResult;
-import com.example.rf1.myapplication2.rest.AuthenticatorInterceptor;
+import com.example.rf1.myapplication2.auth.SessionManager;
 import com.example.rf1.myapplication2.rest.RestClient;
 import com.example.rf1.myapplication2.rest.Result;
-import com.example.rf1.myapplication2.rest.TransactionRes;
+import com.example.rf1.myapplication2.rest.TransactionsResult;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.rest.RestService;
 
@@ -36,6 +37,9 @@ public class MainActivity extends ActionBarActivity {
 
     @RestService
     RestClient api;
+
+    @Bean
+    SessionManager sessionManager;
 
     ActionBarDrawerToggle drawerToggle;
 
@@ -57,17 +61,34 @@ public class MainActivity extends ActionBarActivity {
 
         getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
+        //  testNet();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        sessionManager.login(this);
+    }
+
+    @Receiver(actions = {SessionManager.SESSION_OPENED_BROADCAST}, registerAt = Receiver.RegisterAt.OnResumeOnPause, local = true)
+    void onSessionOpen() {
         testNet();
     }
 
+
     @Background
     void testNet() {
-        final AuthResult login = api.login("den", "1");
-        AuthenticatorInterceptor.authToken = login.authToken;
-        api.addCategory("second");
-        api.addBalance(100000);
-        final Result result = api.addTransactions(2200, "airplane", "2015-05-25");
-        final TransactionRes transactions = api.getTransactions();
+
+        //     sessionManager.createAccount("den", "1");
+
+        //    final AuthResult login = api.login("den", "1");
+
+        // AuthenticatorInterceptor.authToken = login.authToken;
+        //    api.addCategory("1second");
+        //         api.addBalance(100000);
+        final Result result = api.addTransactions(999, "airplane", "2015-05-25");
+        final TransactionsResult transactionsResult = api.getTransactions();
+
     }
 
     @Override
@@ -83,6 +104,7 @@ public class MainActivity extends ActionBarActivity {
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
+
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             switch (position) {
                 case 0:

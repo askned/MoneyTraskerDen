@@ -1,13 +1,33 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    style="@style/Container.DarkBackground">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/card_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="#7F7F7F"
+            android:dividerHeight="0.4dp"
+            android:listSelector="@android:color/transparent" />
+    </LinearLayout>
+
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/textcategory"
-        android:id="@+id/textCategory"
-        android:layout_gravity="bottom|center" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/button_margin"
+        android:src="@drawable/ic_add_white_24dp"
+        fab:fab_colorNormal="@color/primary"
+        fab:fab_colorPressed="@color/accent"
+        fab:fab_colorRipple="@color/ripple" />
+
+</RelativeLayout>

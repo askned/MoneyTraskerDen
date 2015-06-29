@@ -27,4 +27,11 @@
     <string name="noting">Примечание</string>
     <string name="datta">Дата</string>
     <string name="defaulttext">Books</string>
+    <string name="login_error">Ошибка логина</string>
+    <string name="add_category">Добавить категории</string>
+    <string-array name="category">
+        <item>Продукты</item>
+        <item>Развления</item>
+        <item>Другое</item>
+    </string-array>
 </resources>
