@@ -4,17 +4,24 @@ import android.accounts.Account;
 import android.content.AbstractThreadedSyncAdapter;
 import android.content.ContentProviderClient;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SyncResult;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 
 import com.example.rf1.myapplication2.Transaction;
 import com.example.rf1.myapplication2.rest.RestClient;
-import com.example.rf1.myapplication2.rest.RestClient_;
+
+import org.androidannotations.annotations.EBean;
+import org.androidannotations.annotations.rest.RestService;
+
+import java.util.List;
 
 
 @EBean
 public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
+    public static final String SYNCED = "synced";
     public SyncAdapter(Context context) {
         super(context, true);
     }
@@ -27,7 +34,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         try {
             final List<Transaction> unsyncedTransactions = Transaction.getUnsynced();
             for (Transaction transaction : unsyncedTransactions) {
-                api.addTransaction(transaction.sum, transaction.comment, transaction.trDate.toString());
+                api.addTransactions(transaction.sum, transaction.title, transaction.date.toString());
                 transaction.markSynced();
             }
 
@@ -39,6 +46,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             final List<Transaction> syncedTransactions = Transaction.getSynced();
             for (Transaction transaction : syncedTransactions)
                 transaction.delete();
+            LocalBroadcastManager.getInstance(getContext()).sendBroadcast(new Intent(SYNCED));
         } catch (Exception e) {
             e.printStackTrace();
         }

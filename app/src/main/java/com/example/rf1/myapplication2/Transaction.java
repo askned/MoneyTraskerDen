@@ -34,33 +34,33 @@ public class Transaction extends Model {
     }
 public void markSynced() {
         id = ID_SYNCED;
-        save();
+    //    save();
     }
 
     public boolean isInDatabase() {
         return new Select()
                 .from(Transaction.class)
                 .where("uuid = ?", id)
-                .orderBy("date DESC")
+                        //      .orderBy("date DESC")
                 .executeSingle() != null;
     }
 
-    public static List<Transaction> getAll(String filter) {
-        final From from = new Select()
+    public static List<Transaction> getAll() {
+        return new Select()
                 .from(Transaction.class)
-                .orderBy("date DESC");
 
-        if (!TextUtils.isEmpty(filter))
-            from.where("title LIKE ?", "%" + filter + "%");
+                .orderBy("date DESC")
+                .execute();
+//        if (!TextUtils.isEmpty(filter))
+//            from.where("title LIKE ?", "%" + filter + "%");
 
-        return from.execute();
     }
 
     public static List<Transaction> getUnsynced() {
         return new Select()
                 .from(Transaction.class)
                 .where("uuid = ?", ID_UNSYNCED)
-                .orderBy("date DESC")
+                        //     .orderBy("date DESC")
                 .execute();
     }
 

@@ -32,7 +32,7 @@ public class AddTransactionActivity extends ActionBarActivity {
     }
 
     @Click
-    void buttonadd() {
+    void addTransaction() {
         if (title.getText().length() != 0 && sum.getText().length() != 0) {
             new Transaction(title.getText().toString(), Integer.valueOf(sum.getText().toString())).save();
             finish();

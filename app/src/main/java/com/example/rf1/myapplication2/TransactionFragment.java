@@ -14,7 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
-import com.activeandroid.query.Select;
+import com.example.rf1.myapplication2.sync.SyncAdapter;
 import com.melnykov.fab.FloatingActionButton;
 
 import org.androidannotations.annotations.AfterViews;
@@ -22,6 +22,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.OptionsMenuItem;
+import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.List;
@@ -97,8 +98,18 @@ public class TransactionFragment extends Fragment {
         });
     }
 
+    @Receiver(actions = {SyncAdapter.SYNCED}, registerAt = Receiver.RegisterAt.OnResumeOnPause, local = true)
+    void onSync() {
+        loadData();
+    }
+
     public void onResume() {
         super.onResume();
+
+        loadData();
+    }
+
+    private void loadData() {
         getLoaderManager().restartLoader(0, null, new LoaderManager.LoaderCallbacks<List<Transaction>>() {
             @Override
             public Loader<List<Transaction>> onCreateLoader(int id, Bundle args) {
