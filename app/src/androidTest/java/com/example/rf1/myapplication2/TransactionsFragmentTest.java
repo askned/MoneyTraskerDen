@@ -5,26 +5,38 @@ import android.test.ActivityInstrumentationTestCase2;
 import org.junit.Before;
 
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
+import static android.support.test.espresso.matcher.ViewMatchers.withHint;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.CoreMatchers.not;
 
 
-public class TransactionsFragmentTest extends ActivityInstrumentationTestCase2<MainActivity_> {
+import android.support.test.espresso.ViewInteraction;
+import android.test.ActivityInstrumentationTestCase2;
 
-    public TransactionsFragmentTest() {
-        super(MainActivity_.class);
+
+
+public class AddTransactionActivityTest extends ActivityInstrumentationTestCase2 {
+
+    public AddTransactionActivityTest() {
+        super(AddTransactionActivity_.class);
     }
 
-    @Before
-    public void setUp() {
+    public void setUp() throws Exception {
+        super.setUp();
         getActivity();
     }
 
-    public void testAddButton() {
-        onView(withId(R.id.fab)).perform(click());
-        onView(withText(R.string.sum)).check(matches(isDisplayed()));
+    public void testAddTransaction() throws Exception {
+        submitButton().check(matches(not(isEnabled()))); // not enabled
+        onView(withHint(R.string.sum_hint)).perform(typeText("100"));
+        onView(withHint(R.string.about_hint)).perform(typeText("description"));
+        submitButton().check(matches((isEnabled()))); // enabled
+    }
+
+    private ViewInteraction submitButton() {
+        return onView(withText(R.string.add));
     }
 }
