@@ -59,7 +59,7 @@
 
         <provider
             android:name=".sync.StubContentProvider"
-            android:authorities="com.my.moneytracker"
+            android:authorities="com.example.rf1.myapplication2"
             android:exported="false"
             android:syncable="true" />
 

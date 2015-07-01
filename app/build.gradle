@@ -31,7 +31,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
     packagingOptions {
+        exclude 'LICENSE.txt' // needed for testing library hamcrest
         exclude 'META-INF/license.txt'
         exclude 'META-INF/notice.txt'
     }
@@ -49,6 +53,9 @@ dependencies {
     compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'org.androidannotations:androidannotations-api:3.3.1'
+    androidTestCompile 'com.android.support.test:runner:0.3'
+    androidTestCompile 'com.android.support.test:rules:0.3'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
     apt 'org.androidannotations:androidannotations:3.3.1'
     compile('com.mikepenz.materialdrawer:library:2.9.7@aar') {
         transitive = true

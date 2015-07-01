@@ -13,7 +13,12 @@
     <string name="categorii">Категории</string>
     <string name="textcategory">Техника Еда</string>
 
-
+   <string name="enter_login">Логин</string>
+    <string name="enter_password">Пароль</string>
+    <string name="action_sign_in">Войти / зарегистрироваться</string>
+    <string name="action_sign_in_short">Войти</string>
+    
+    <string name="ok">ok</string>
     <string name="drawer_item_home">Home</string>
     <string name="drawer_item_free_play">Free Play</string>
     <string name="drawer_item_custom">Custom</string>

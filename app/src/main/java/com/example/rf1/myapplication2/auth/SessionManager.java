@@ -24,7 +24,7 @@ import java.io.IOException;
 @EBean(scope = EBean.Scope.Singleton)
 public class SessionManager {
     private static final String LOG_TAG = SessionManager.class.getSimpleName();
-
+    public static final String CONTENT = "com.example.rf1.myapplication2";
     public static final String AUTH_ACCOUNT_TYPE = "com.example.rf1.myapplication2";
     private static final String AUTH_TOKEN_TYPE_FULL_ACCESS = AUTH_ACCOUNT_TYPE + ".authtokenFull";
     public static final String SESSION_OPENED_BROADCAST = "session-open";

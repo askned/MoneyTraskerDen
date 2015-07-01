@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="add"
-            android:id="@+id/buttonadd"
+            android:id="@+id/addTransaction"
             android:layout_row="4"
             android:layout_column="1"
             android:paddingRight="@dimen/pendrig" />

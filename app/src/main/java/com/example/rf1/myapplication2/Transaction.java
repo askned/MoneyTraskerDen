@@ -32,37 +32,43 @@ public class Transaction extends Model {
         this.sum = sum;
         date = new Date();
     }
-
-    public void markSynced() {
+public void markSynced() {
         id = ID_SYNCED;
+       save();
     }
 
     public boolean isInDatabase() {
-        return new Select()    //activandroid
+        return new Select()
                 .from(Transaction.class)
                 .where("uuid = ?", id)
+                        //      .orderBy("date DESC")
                 .executeSingle() != null;
+    }
+
+    public static List<Transaction> getAll() {
+        return new Select()
+                .from(Transaction.class)
+
+                .orderBy("date DESC")
+                .execute();
+//        if (!TextUtils.isEmpty(filter))
+//            from.where("title LIKE ?", "%" + filter + "%");
+
+    }
+
+    public static List<Transaction> getUnsynced() {
+        return new Select()
+                .from(Transaction.class)
+                .where("uuid = ?", ID_UNSYNCED)
+                        //     .orderBy("date DESC")
+                .execute();
     }
 
     public static List<Transaction> getSynced() {
         return new Select()
                 .from(Transaction.class)
                 .where("uuid = ?", ID_SYNCED)
-                .execute();
-    }
-
-    public static List<Transaction> getUnsynced() { //find all 0
-        return new Select()
-                .from(Transaction.class)
-                .where("uuid = ?", ID_UNSYNCED)
-                .execute();
-    }
-
-    public static List<Transaction> getAll() {
-        return new Select()
-                .from(Transaction.class)
                 .orderBy("date DESC")
                 .execute();
     }
 }
-
