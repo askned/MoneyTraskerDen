@@ -14,6 +14,7 @@ import java.io.IOException;
 @EBean
 public class AuthenticatorInterceptor implements ClientHttpRequestInterceptor {
     private static final String LOG_TAG = AuthenticatorInterceptor.class.getSimpleName();
+    public static String authToken;
 
     @Bean
     SessionManager sessionManager;

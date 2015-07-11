@@ -34,7 +34,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         try {
             final List<Transaction> unsyncedTransactions = Transaction.getUnsynced();
             for (Transaction transaction : unsyncedTransactions) {
-                api.addTransactions(transaction.sum, transaction.title, transaction.date.toString());
+                api.addTransactions(transaction.sum, transaction.comment, transaction.tr_date.toString());
                 transaction.markSynced();
             }
 

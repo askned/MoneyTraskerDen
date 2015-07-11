@@ -1,6 +1,8 @@
 package com.example.rf1.myapplication2;
 
 
+import android.text.format.DateFormat;
+
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
@@ -16,11 +18,11 @@ public class Transaction extends Model {
     private static final int ID_SYNCED = -1;
 
     @Column(name = "title")
-    public String title;
+    public String comment;
     @Column(name = "sum")
     public Integer sum;
     @Column(name = "date")
-    public Date date;
+    public Date tr_date;
     @Column(name = "uuid")
     private int id;
 
@@ -28,10 +30,10 @@ public class Transaction extends Model {
     }
 
     public Transaction(String title, Integer sum) {
-        this.title = title;
+        this.comment = title;
         this.sum = sum;
-        date = new Date();
-    }
+        tr_date = new Date();
+      }
 public void markSynced() {
         id = ID_SYNCED;
        save();
@@ -74,10 +76,14 @@ public void markSynced() {
 
 
     public String getName() {
-        return title;
+        return comment;
     }
 
     public Integer getSum() {
         return sum;
+    }
+
+    public Date getDate() {
+        return tr_date;
     }
 }

@@ -57,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
 
         getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
-        //  testNet();
+
     }
 
     @Override
@@ -66,26 +66,7 @@ public class MainActivity extends ActionBarActivity {
         sessionManager.login(this);
     }
 
-//    @Receiver(actions = {SessionManager.SESSION_OPENED_BROADCAST}, registerAt = Receiver.RegisterAt.OnResumeOnPause, local = true)
-//    void onSessionOpen() {
-//        testNet();
-//    }
 
-
-//    @Background
-//    void testNet() {
-//
-//        //     sessionManager.createAccount("den", "1");
-//
-//        //    final AuthResult login = api.login("den", "1");
-//
-//        // AuthenticatorInterceptor.authToken = login.authToken;
-//        //    api.addCategory("1second");
-//        //         api.addBalance(100000);
-//        final Result result = api.addTransactions(999, "airplane", "2015-05-25");
-//        final TransactionsResult transactionsResult = api.getTransactions();
-//
-//    }
 
     @Override
     public void setTitle(CharSequence title) {

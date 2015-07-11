@@ -7,7 +7,7 @@ import android.text.TextUtils;
  */
 public class Result {
     String status;
-
+    int id;
     public boolean isSuccessfull() {
         return TextUtils.equals(status, "success");
     }

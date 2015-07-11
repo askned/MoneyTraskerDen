@@ -34,6 +34,7 @@
     <string name="defaulttext">Books</string>
     <string name="login_error">Ошибка логина</string>
     <string name="add_category">Добавить категории</string>
+    <string name="loginisok">Авторизация успешна!</string>
     <string-array name="category">
         <item>Продукты</item>
         <item>Развления</item>

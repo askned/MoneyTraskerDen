@@ -14,5 +14,6 @@
 
     <color name="orange">#FF9900</color>
     <color name="green_refresh">#009900</color>
-    <color name="blue">#000099</color>ref
+    <color name="whitecol">#fffff1f3</color>
+    <color name="blue">#000099</color>
 </resources>

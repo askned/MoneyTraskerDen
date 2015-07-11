@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -47,9 +48,9 @@ public class TransactionAdapter extends SelectableAdapter<TransactionAdapter.Car
     @Override
     public void onBindViewHolder(CardViewHolder holder, int position) {
         Transaction transaction = transactions.get(position);
-        holder.name.setText(transaction.title);
+        holder.name.setText(transaction.comment);
         holder.sum.setText(String.valueOf(transaction.sum));
-        holder.date.setText(String.valueOf(transaction.date));
+        holder.date.setText(String.valueOf((new SimpleDateFormat("dd-MM-yyyy").format(transaction.getDate()))));
         holder.selected.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
  //       setAnimation(holder.cardView, position);
 
