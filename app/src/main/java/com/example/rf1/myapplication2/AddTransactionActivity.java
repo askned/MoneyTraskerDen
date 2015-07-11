@@ -5,6 +5,8 @@ import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.activeandroid.query.Select;
+
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
@@ -28,7 +30,7 @@ public class AddTransactionActivity extends ActionBarActivity {
 
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+    //    setHintFromLastTransaction();
     }
 
     @Click
@@ -48,6 +50,20 @@ public class AddTransactionActivity extends ActionBarActivity {
     void homeSelected() {
         onBackPressed();
     }
+
+    private void setHintFromLastTransaction() {
+        Transaction lastTransaction = getLastTransaction();
+        if (lastTransaction != null) {
+            title.setHint(lastTransaction.getName());
+            sum.setHint(String.valueOf(lastTransaction.getSum()));
+        }
+    }
+
+    private Transaction getLastTransaction() {
+        return new Select().from(Transaction.class).orderBy("CreateDate Desc").executeSingle();
+    }
+
+
 }
 
 

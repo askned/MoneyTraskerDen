@@ -23,6 +23,10 @@ public interface RestClient {
     Result addCategory(String title);
 
 
+    @Get("/categories")
+    CategoryResult getCategory();
+
+
     @Post("/balance?set={balance}")
     Result addBalance(int balance);
 }

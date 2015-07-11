@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.melnykov.fab.FloatingActionButton;
 
@@ -70,19 +71,32 @@ public class CategoryFragment extends Fragment {
                 if (!TextUtils.isEmpty(text)) {
                     ar.add(text.toString());
                     dialog.dismiss();
-                }
-            }
-        });
+                } else {
+                    Toast toast = Toast.makeText(getActivity().getApplicationContext(),
+                            getString(R.string.tosterror), Toast.LENGTH_SHORT);
+                    toast.show();
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                }}
+            }
+
+            );
+
+            cancelButton.setOnClickListener(new View.OnClickListener()
+
+            {
+                @Override
+                public void onClick (View v){
                 dialog.dismiss();
             }
-        });
-        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        dialog.show();
+            }
+
+            );
+            dialog.getWindow().
+
+            setBackgroundDrawableResource(android.R.color.transparent);
+
+            dialog.show();
+        }
+
+
     }
-
-
-}

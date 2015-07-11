@@ -71,4 +71,13 @@ public void markSynced() {
                 .orderBy("date DESC")
                 .execute();
     }
+
+
+    public String getName() {
+        return title;
+    }
+
+    public Integer getSum() {
+        return sum;
+    }
 }
