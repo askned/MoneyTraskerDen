@@ -54,6 +54,7 @@ public class CategoryFragment extends Fragment {
         ar.add(s3);}
 
 
+
         adapterstart();
 
 

@@ -124,15 +124,14 @@
         app:ms_multiline="false"
         app:ms_hint="hint"
         app:ms_floatingLabelText="floating label"
-        app:ms_baseColor="#44000000"
-        app:ms_highlightColor="#44000000"
-        app:ms_errorColor="#44000000"
+
         app:ms_typeface="typeface.ttf"
-   
-        app:ms_arrowColor="#0000FF"
-        app:ms_arrowSize="16dp"
-        app:ms_alignLabels="false"
-        app:ms_floatingLabelColor="#00FF00"
+
+    app:ms_arrowColor="#0000FF"
+    app:ms_arrowSize="16dp"
+    app:ms_alignLabels="false"
+    app:ms_floatingLabelColor="#00FF00"
+
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
         
