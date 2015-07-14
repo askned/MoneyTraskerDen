@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +13,6 @@
         android:layout_height="wrap_content"
         android:columnCount="4"
         android:rowCount="11"
-        android:layout_margin="@dimen/laymarg"
 
         android:background="@color/background">
 
@@ -25,7 +25,9 @@
             android:layout_row="0"
             android:layout_column="1"
             android:hint="300"
-            android:gravity="fill" />
+            android:gravity="fill"
+            android:layout_marginLeft="15dp"
+            android:height="40dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,17 +37,22 @@
             android:id="@+id/textdescrip"
             android:layout_row="1"
             android:layout_column="1"
-            android:gravity="fill" />
+            android:gravity="fill"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:height="40dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/categorii"
-            android:id="@+id/textcategory"
+            android:id="@+id/textcategoriya"
             android:layout_row="2"
             android:layout_column="1"
-            android:gravity="fill" />
+            android:gravity="fill"
+            android:layout_marginLeft="15dp"
+            android:height="40dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,7 +62,9 @@
             android:id="@+id/textdata"
             android:layout_row="3"
             android:layout_column="1"
-            android:gravity="fill" />
+            android:gravity="fill"
+            android:layout_marginLeft="15dp"
+            android:height="40dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -106,5 +115,25 @@
             android:layout_row="4"
             android:layout_column="1"
             android:paddingRight="@dimen/pendrig" />
+
+
     </GridLayout>
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/spinner"
+        app:ms_multiline="false"
+        app:ms_hint="hint"
+        app:ms_floatingLabelText="floating label"
+        app:ms_baseColor="@color/base"
+        app:ms_highlightColor="@color/highlight"
+        app:ms_errorColor="@color/error"
+        app:ms_typeface="typeface.ttf"
+
+        app:ms_arrowColor="#0000FF"
+        app:ms_arrowSize="16dp"
+        app:ms_alignLabels="false"
+        app:ms_floatingLabelColor="#00FF00"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

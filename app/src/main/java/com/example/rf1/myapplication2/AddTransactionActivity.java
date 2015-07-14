@@ -1,8 +1,12 @@
 package com.example.rf1.myapplication2;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.activeandroid.query.Select;
@@ -12,6 +16,9 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.res.StringArrayRes;
+
+import fr.ganfra.materialspinner.MaterialSpinner;
 
 
 @EActivity(R.layout.addtrans)
@@ -21,12 +28,19 @@ public class AddTransactionActivity extends ActionBarActivity {
     Toolbar toolbar;
 
     @ViewById
+    Spinner spinner;
+
+    @ViewById
     EditText sum, title;
+
+    @StringArrayRes(R.array.category)
+    String values[];
 
     @AfterViews
     void ready() {
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.add_transactions));
+
 
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -49,6 +63,9 @@ public class AddTransactionActivity extends ActionBarActivity {
     @OptionsItem
     void homeSelected() {
         onBackPressed();
+       // Intent intent = new Intent(this, MainActivity_.class);
+       // startActivity(intent);
+
     }
 
     private void setHintFromLastTransaction() {
@@ -63,6 +80,12 @@ public class AddTransactionActivity extends ActionBarActivity {
         return new Select().from(Transaction.class).orderBy("CreateDate Desc").executeSingle();
     }
 
+
+    String[] ITEMS = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"};
+    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    spinner = (MaterialSpinner) findViewById(R.id.spinner);
+    spinner.setAdapter(adapter);
 
 }
 

@@ -24,7 +24,8 @@ import java.util.ArrayList;
 
 @EFragment(R.layout.categoris)
 public class CategoryFragment extends Fragment {
-    private ArrayList<String> ar = new ArrayList<>();
+   public ArrayList<String> ar = new ArrayList<>();
+
 
     @ViewById(R.id.card_listView)
     ListView listView;
@@ -42,17 +43,30 @@ public class CategoryFragment extends Fragment {
 
     @AfterViews()
     void ready() {
+
+        if (ar.size()==0){
+         //   ArrayList<String> ar = new ArrayList<>();
         String s1 = "Food";
         String s2 = "Entertaimnet";
         String s3 = "Other";
         ar.add(s1);
         ar.add(s2);
-        ar.add(s3);
+        ar.add(s3);}
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, ar);
+
+        adapterstart();
+
+
+        fab.attachToListView(listView);
+    }
+
+
+
+    public void adapterstart(){
+        ArrayAdapter<String> adapter;
+        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, values);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        fab.attachToListView(listView);
     }
 
     private void alertDialog() {
@@ -70,6 +84,9 @@ public class CategoryFragment extends Fragment {
                 Editable text = editText.getText();
                 if (!TextUtils.isEmpty(text)) {
                     ar.add(text.toString());
+                   // String[] values = setResources().setStringArray(R.array.testArray);
+
+                    adapterstart();
                     dialog.dismiss();
                 } else {
                     Toast toast = Toast.makeText(getActivity().getApplicationContext(),
@@ -95,8 +112,8 @@ public class CategoryFragment extends Fragment {
 
             setBackgroundDrawableResource(android.R.color.transparent);
 
-            dialog.show();
+        dialog.show();
         }
 
 
-    }
+}

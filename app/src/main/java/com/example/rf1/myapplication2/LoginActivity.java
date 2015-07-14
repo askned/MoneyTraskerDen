@@ -49,6 +49,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
         handleLoginResult(loginName, loginResult);
     }
 
+    @Background
     void registration() {
         final String loginName = this.logintx.getText().toString();
         final Result registration = api.registration(loginName, passtx.getText().toString());
@@ -68,13 +69,11 @@ public class LoginActivity extends AccountAuthenticatorActivity {
         } else
             Toast.makeText(this, R.string.login_error, Toast.LENGTH_LONG).show();
     }
-
+    @UiThread
     void handleregistration(Result registration) {
         if (registration.isSuccessfull()) {
-        //    sessionManager.createAccount(loginName, loginResult.authToken);
-        //    setAccountAuthenticatorResult(new Bundle());
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    getString(R.string.loginisok), Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                    getString(R.string.registratok), Toast.LENGTH_SHORT);
             toast.show();
             finish();
         } else

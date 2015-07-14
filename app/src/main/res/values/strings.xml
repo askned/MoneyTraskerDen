@@ -35,9 +35,22 @@
     <string name="login_error">Ошибка логина</string>
     <string name="add_category">Добавить категории</string>
     <string name="loginisok">Авторизация успешна!</string>
+    <string name="registratok">Вы зарегестрировались.</string>
+    <string name="sum_hint">100</string>
+    <string name="about_hint">description</string>
+    <string name="add">ok</string>
     <string-array name="category">
-        <item>Продукты</item>
-        <item>Развления</item>
+        <item>Дом</item>
+        <item>Еда</item>
+        <item>Животные</item>
+        <item>Здоровье</item>
+        <item>Одежда</item>
+        <item>Техника</item>
+        <item>Развлечение</item>
+        <item>Связь</item>
+        <item>Спорт</item>
+        <item>Транспорт</item>
+        <item>Образование</item>
         <item>Другое</item>
     </string-array>
 </resources>

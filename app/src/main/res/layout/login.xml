@@ -38,6 +38,7 @@
             android:phoneNumber="true"
             android:elevation="10dp"
             android:padding="10dp" />
+
     </GridLayout>
 
     <TextView
