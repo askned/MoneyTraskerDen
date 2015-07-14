@@ -28,13 +28,15 @@ public class AddTransactionActivity extends ActionBarActivity {
     Toolbar toolbar;
 
     @ViewById
-    Spinner spinner;
+    MaterialSpinner spinner1;
 
     @ViewById
     EditText sum, title;
 
     @StringArrayRes(R.array.category)
     String values[];
+    
+     private ArrayAdapter<String> adapter;
 
     @AfterViews
     void ready() {
@@ -80,12 +82,14 @@ public class AddTransactionActivity extends ActionBarActivity {
         return new Select().from(Transaction.class).orderBy("CreateDate Desc").executeSingle();
     }
 
+ String[] ITEMS = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"};
+ adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+ spinner.setAdapter(adapter);
 
-    String[] ITEMS = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"};
-    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
-    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    spinner = (MaterialSpinner) findViewById(R.id.spinner);
-    spinner.setAdapter(adapter);
+  
+  //  spinner = (MaterialSpinner) findViewById(R.id.spinner);
+   
 
 }
 
