@@ -87,7 +87,7 @@ public class AddTransactionActivity extends ActionBarActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
  spinner.setAdapter(adapter);
 
-  
+  //String[] ITEMS = getResources().getStringArray(R.array.countries_list);
   //  spinner = (MaterialSpinner) findViewById(R.id.spinner);
    
 
