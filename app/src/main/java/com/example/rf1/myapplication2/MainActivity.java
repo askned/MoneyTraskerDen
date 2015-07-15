@@ -105,6 +105,14 @@ public class MainActivity extends ActionBarActivity {
                 setTitle(getString(R.string.statistics));
                     getFragmentManager().beginTransaction().replace(R.id.content_frame, StatmentFragment_.builder().build()).commit();
                     break;
+                
+                case 3:
+
+                left_drawer.setItemChecked(position, true);
+                drawerLayout.closeDrawer(left_drawer);
+                setTitle(getString(R.string.razrabotka));
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, RazrabotkaFragment_.builder().build()).commit();
+                    break;
             }
         }
     }
