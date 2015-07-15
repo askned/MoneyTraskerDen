@@ -1,1 +1,21 @@
-egg
+package com.example.rf1.myapplication2;
+
+import android.app.Fragment;
+
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ViewById;
+
+@EFragment(R.layout.razrabotka)
+public class StatmentFragment extends Fragment {
+
+    @ViewById(R.id.razrabotkatext)
+    TextView textView;
+
+
+    @AfterViews
+    void ready() {
+        pieChartView.setDatapoints(datapoints);
+    }
+
+    }
