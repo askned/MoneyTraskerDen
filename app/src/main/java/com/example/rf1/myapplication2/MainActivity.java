@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
 
     @AfterViews
     void ready() {
-        String[] navigationData = new String[]{getString(R.string.transactions), getString(R.string.categorii), getString(R.string.statistics)};
+        String[] navigationData = new String[]{getString(R.string.transactions), getString(R.string.categorii), getString(R.string.statistics), getString(R.string.razrabotka)};
         ArrayAdapter<String> navigationDrawerAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, navigationData);
         left_drawer.setAdapter(navigationDrawerAdapter);
         left_drawer.setOnItemClickListener(new DrawerItemClickListener());

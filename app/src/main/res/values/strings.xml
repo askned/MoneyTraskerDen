@@ -39,6 +39,8 @@
     <string name="sum_hint">100</string>
     <string name="about_hint">description</string>
     <string name="add">ok</string>
+    <string name="razrabotkatext">Разработал Шевченко Д.К, при поддержке Лофт скулл</string>
+    <string name="razrabotka">Разработка</string>
     <string-array name="category">
         <item>Дом</item>
         <item>Еда</item>

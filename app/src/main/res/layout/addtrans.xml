@@ -134,9 +134,9 @@
 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
-        
-        
-        <GridLayout
+
+
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
