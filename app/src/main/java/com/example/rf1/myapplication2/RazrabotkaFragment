@@ -15,7 +15,7 @@ public class StatmentFragment extends Fragment {
 
     @AfterViews
     void ready() {
-        pieChartView.setDatapoints(datapoints);
+       
     }
 
     }
