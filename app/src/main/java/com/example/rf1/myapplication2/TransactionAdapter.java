@@ -70,7 +70,7 @@ public class TransactionAdapter extends SelectableAdapter<TransactionAdapter.Car
             }
         });
 
-        // Split the list in ranges
+
         while (!positions.isEmpty()) {
             if (positions.size() == 1) {
                 removeItem(positions.get(0));

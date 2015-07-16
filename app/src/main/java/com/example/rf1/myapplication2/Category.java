@@ -1,8 +1,6 @@
 package com.example.rf1.myapplication2;
 
 
-import android.text.Editable;
-
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
@@ -13,13 +11,11 @@ import java.util.List;
 
 @Table(name = "DBCategory")
 public class Category extends Model {
-//    private static final int ID_UNSYNCED = 0;
-//    private static final int ID_SYNCED = -1;
+
 
     @Column(name = "categoryname")
     public String categoryname;
- //   @Column(name = "catid")
- //   private int catid;
+
 
     public Category() {    }
 
@@ -31,11 +27,8 @@ public class Category extends Model {
     public static List<Category> getAll() {
         return new Select()
                 .from(Category.class)
-             //   .where("categoryname  = ?")
-             //   .orderBy("date DESC")
+
                 .execute();
-//        if (!TextUtils.isEmpty(filter))
-//            from.where("title LIKE ?", "%" + filter + "%");
 
     }
 

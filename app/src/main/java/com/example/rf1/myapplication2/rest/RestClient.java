@@ -19,7 +19,7 @@ public interface RestClient {
 
 
     @Post("/transactions/add?sum={sum}&comment={comment}&tr_date={tr_date}&category_id=1")
-    Result addTransactions(Integer sum, String comment, String tr_date);
+    Result addTransactions(Integer sum, String comment, String tr_date, Integer trcategory);
 
 
     @Post("/categories/add?title={title}")

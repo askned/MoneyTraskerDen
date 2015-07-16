@@ -44,14 +44,15 @@ public class CategoryFragment extends Fragment {
     @AfterViews()
     void ready() {
 
-        if (ar.size()==0){
-         //   ArrayList<String> ar = new ArrayList<>();
-        String s1 = "Food";
-        String s2 = "Entertaimnet";
-        String s3 = "Other";
-        ar.add(s1);
-        ar.add(s2);
-        ar.add(s3);}
+        ar.add(getString(R.string.dom));
+        ar.add(getString(R.string.eda));
+        ar.add(getString(R.string.juvotn));
+        ar.add(getString(R.string.zdorov));
+        ar.add(getString(R.string.odejda));
+        ar.add(getString(R.string.teknika));
+        ar.add(getString(R.string.svyaz));
+        ar.add(getString(R.string.obrazovan));
+        ar.add(getString(R.string.drygoe));
 
 
 
@@ -64,8 +65,9 @@ public class CategoryFragment extends Fragment {
 
 
     public void adapterstart(){
+
         ArrayAdapter<String> adapter;
-        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, values);
+        adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, ar);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -84,10 +86,8 @@ public class CategoryFragment extends Fragment {
             public void onClick(View v) {
                 Editable text = editText.getText();
                 if (!TextUtils.isEmpty(text)) {
-                    adapter.add(text.toString());
-                   // String[] values = setResources().setStringArray(R.array.testArray);
-                     adapter.notifyDataSetChanged();
-                    //adapterstart();
+                    ar.add(text.toString());
+                    adapterstart();
                     dialog.dismiss();
                 } else {
                     Toast toast = Toast.makeText(getActivity().getApplicationContext(),

@@ -165,11 +165,7 @@ public class TransactionFragment extends Fragment {
             actionMode.invalidate();
         }
     }
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        recyclerView.setAdapter(new TransactionAdapter(getDataList()));
-//    }
+
 
     @Click
     void fabClicked() {

@@ -47,6 +47,9 @@ public class AddTransactionActivity extends ActionBarActivity implements DatePic
     String oldstring;
     Date trandate;
 
+    @ViewById
+    Spinner spinner;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,32 +60,26 @@ public class AddTransactionActivity extends ActionBarActivity implements DatePic
     }
 
 
-
-
-
     @AfterViews
     void ready() {
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.add_transactions));
 
-
-        //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //    setHintFromLastTransaction();
-        Spinner spinner = (Spinner) findViewById(R.id.planets_spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.category, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
+
         spinner.setAdapter(adapter);
 
     }
             @Click
             void addTransaction() {
-                if (title.getText().length() != 0 && sum.getText().length() != 0) {
-                    new Transaction(title.getText().toString(), Integer.valueOf(sum.getText().toString()), trandate).save();
+                if (title.getText().length() != 0 && sum.getText().length() != 0 && enterdata.getText().length() != 12) {
+                    Integer checkcategory = spinner.getSelectedItemPosition();
+                    new Transaction(title.getText().toString(), Integer.valueOf(sum.getText().toString()), trandate, checkcategory).save();
                     finish();
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(),
@@ -95,8 +92,6 @@ public class AddTransactionActivity extends ActionBarActivity implements DatePic
     @OptionsItem
     void homeSelected() {
         onBackPressed();
-       // Intent intent = new Intent(this, MainActivity_.class);
-       // startActivity(intent);
     }
 
     private void setHintFromLastTransaction() {

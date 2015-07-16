@@ -93,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Сегодня"
+            android:text="Укажите дату"
             android:id="@+id/enterdata"
             android:onClick="showDatePickerDialog"
             android:layout_row="3"
@@ -103,7 +103,7 @@
             android:layout_marginLeft="8dp" />
 
         <Spinner
-            android:id="@+id/planets_spinner"
+            android:id="@+id/spinner"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"

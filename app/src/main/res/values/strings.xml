@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Denis Money Tracker</string
+    <string name="app_name">Denis Money Tracker</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -39,10 +39,19 @@
     <string name="sum_hint">100</string>
     <string name="about_hint">description</string>
     <string name="add">ОК</string>
-    <string name="razrabotkatext">Разработано Шевченко Д.(askden8@gmail.com) при поддержке Loftschool (http://loftschool.com/)</string>
+    <string name="razrabotkatext">Разработано Шевченко Д.(askden8@gmail.com) </string>
     <string name="razrabotka">Разработка</string>
     <string name="pick_date">дату</string>
     <string name="categoriya">Категория</string>
+    <string name="dom">Дом</string>
+    <string name="eda">Еда</string>
+    <string name="juvotn">Животные</string>
+    <string name="zdorov">Здоровье</string>
+    <string name="odejda">Одежда</string>
+    <string name="teknika">Техника</string>
+    <string name="svyaz">Связь</string>
+    <string name="obrazovan">Образование</string>
+    <string name="drygoe">Другое</string>
     <string-array name="category">
         <item>Дом</item>
         <item>Еда</item>

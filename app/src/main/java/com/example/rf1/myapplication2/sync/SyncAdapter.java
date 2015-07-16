@@ -36,7 +36,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             final List<Transaction> unsyncedTransactions = Transaction.getUnsynced();
             for (Transaction transaction : unsyncedTransactions) {
                 String newstring = new SimpleDateFormat("dd-MM-yyyy").format(transaction.tr_date);
-                api.addTransactions(transaction.sum, transaction.comment, newstring);
+                api.addTransactions(transaction.sum, transaction.comment, newstring, transaction.trcategory);
                 transaction.markSynced();
             }
 

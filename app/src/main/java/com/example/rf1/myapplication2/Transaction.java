@@ -24,26 +24,23 @@ public class Transaction extends Model {
     @Column(name = "uuid")
     private int id;
     @Column(name = "trcategory")
-    private int trcategory;
+    public int trcategory;
+
+
 
     public Transaction() {
     }
 
-    public Transaction(String title, Integer sum) {
-        this.comment = title;
-        this.sum = sum;
-        tr_date = new Date();
-      }
 
     public Transaction(String title, Integer sum, Date dateenter) {
         this.comment = title;
         this.sum = sum;
         tr_date = dateenter;
-        
+    }
     public Transaction(String title, Integer sum, Date dateenter, Integer trcategory) {
         this.comment = title;
         this.sum = sum;
-        this.tr_date = dateenter
+        this.tr_date = dateenter;
         this.trcategory = trcategory;
     }
 public void markSynced() {
@@ -55,7 +52,7 @@ public void markSynced() {
         return new Select()
                 .from(Transaction.class)
                 .where("uuid = ?", id)
-                        //      .orderBy("date DESC")
+
                 .executeSingle() != null;
     }
 
@@ -65,8 +62,6 @@ public void markSynced() {
 
                 .orderBy("date DESC")
                 .execute();
-//        if (!TextUtils.isEmpty(filter))
-//            from.where("title LIKE ?", "%" + filter + "%");
 
     }
 
@@ -74,7 +69,7 @@ public void markSynced() {
         return new Select()
                 .from(Transaction.class)
                 .where("uuid = ?", ID_UNSYNCED)
-                        //     .orderBy("date DESC")
+
                 .execute();
     }
 

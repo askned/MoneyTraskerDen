@@ -57,7 +57,6 @@ public class MainActivity extends ActionBarActivity {
 
         getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
-   //     new Category("Dom").save();
 
     }
 
