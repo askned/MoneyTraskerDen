@@ -23,6 +23,8 @@ public class Transaction extends Model {
     public Date tr_date;
     @Column(name = "uuid")
     private int id;
+    @Column(name = "trcategory")
+    private int trcategory;
 
     public Transaction() {
     }
@@ -37,6 +39,12 @@ public class Transaction extends Model {
         this.comment = title;
         this.sum = sum;
         tr_date = dateenter;
+        
+    public Transaction(String title, Integer sum, Date dateenter, Integer trcategory) {
+        this.comment = title;
+        this.sum = sum;
+        this.tr_date = dateenter
+        this.trcategory = trcategory;
     }
 public void markSynced() {
         id = ID_SYNCED;
