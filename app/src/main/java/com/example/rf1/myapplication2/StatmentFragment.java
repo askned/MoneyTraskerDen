@@ -10,6 +10,9 @@ import org.androidannotations.annotations.ViewById;
 public class StatmentFragment extends Fragment {
 
     Map<String, Float> map = new HashMap<>();
+    
+     @ViewById(R.id.chart)
+    PieChart chart;
 
     @AfterViews
     void ready() {
