@@ -15,6 +15,7 @@ import com.example.rf1.myapplication2.rest.RestClient;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.rest.RestService;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 
@@ -34,7 +35,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         try {
             final List<Transaction> unsyncedTransactions = Transaction.getUnsynced();
             for (Transaction transaction : unsyncedTransactions) {
-                api.addTransactions(transaction.sum, transaction.comment, transaction.tr_date.toString());
+                String newstring = new SimpleDateFormat("dd-MM-yyyy").format(transaction.tr_date);
+                api.addTransactions(transaction.sum, transaction.comment, newstring);
                 transaction.markSynced();
             }
 

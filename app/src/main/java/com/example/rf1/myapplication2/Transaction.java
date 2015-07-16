@@ -1,8 +1,6 @@
 package com.example.rf1.myapplication2;
 
 
-import android.text.format.DateFormat;
-
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
@@ -34,6 +32,12 @@ public class Transaction extends Model {
         this.sum = sum;
         tr_date = new Date();
       }
+
+    public Transaction(String title, Integer sum, Date dateenter) {
+        this.comment = title;
+        this.sum = sum;
+        tr_date = dateenter;
+    }
 public void markSynced() {
         id = ID_SYNCED;
        save();

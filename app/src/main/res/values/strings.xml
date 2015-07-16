@@ -41,6 +41,8 @@
     <string name="add">ok</string>
     <string name="razrabotkatext">Разработал Шевченко Д.К, при поддержке Лофт скулл</string>
     <string name="razrabotka">Разработка</string>
+    <string name="pick_date">дату</string>
+    <string name="categoriya">Категория</string>
     <string-array name="category">
         <item>Дом</item>
         <item>Еда</item>

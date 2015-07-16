@@ -1,17 +1,20 @@
 package com.example.rf1.myapplication2;
 
+import android.app.DatePickerDialog;
+import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.activeandroid.query.Select;
-import com.fourmob.datetimepicker.date.DatePickerDialog;
-import com.sleepbot.datetimepicker.time.RadialPickerLayout;
-import com.sleepbot.datetimepicker.time.TimePickerDialog;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -20,75 +23,66 @@ import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.res.StringArrayRes;
 
-import java.util.Calendar;
-
-import fr.ganfra.materialspinner.MaterialSpinner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 @EActivity(R.layout.addtrans)
-public class AddTransactionActivity extends ActionBarActivity {
-    
-      public static final String DATEPICKER_TAG = "datepicker";
-    public static final String TIMEPICKER_TAG = "timepicker";
+public class AddTransactionActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener {
 
 
     @ViewById
     Toolbar toolbar;
 
     @ViewById
-    MaterialSpinner spinner;
+    TextView enterdata;
 
     @ViewById
     EditText sum, title;
 
     @StringArrayRes(R.array.category)
     String values[];
-    
-     private ArrayAdapter<String> adapter;
+
+    String oldstring;
+    Date trandate;
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.addtrans);
+
+
+    }
+
+
+
+
 
     @AfterViews
     void ready() {
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.add_transactions));
 
-        String[] ITEMS = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"};
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
 
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //    setHintFromLastTransaction();
+        Spinner spinner = (Spinner) findViewById(R.id.planets_spinner);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.category, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
 
-        final Calendar calendar = Calendar.getInstance();
-
-        final DatePickerDialog datePickerDialog = DatePickerDialog.newInstance((DatePickerDialog.OnDateSetListener) this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), isVibrate());
-        final TimePickerDialog timePickerDialog = TimePickerDialog.newInstance((TimePickerDialog.OnTimeSetListener) this, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false, false);
-
-        findViewById(R.id.dateButton).setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                datePickerDialog.setVibrate(isVibrate());
-                datePickerDialog.setYearRange(1985, 2028);
-                datePickerDialog.setCloseOnSingleTapDay(isCloseOnSingleTapDay());
-                datePickerDialog.show(getSupportFragmentManager(), DATEPICKER_TAG);
-            }
-        });
-
-        findViewById(R.id.timeButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                timePickerDialog.setVibrate(isVibrate());
-                timePickerDialog.setCloseOnSingleTapMinute(isCloseOnSingleTapMinute());
-                timePickerDialog.show(getSupportFragmentManager(), TIMEPICKER_TAG);
-            }
-        });
     }
             @Click
             void addTransaction() {
                 if (title.getText().length() != 0 && sum.getText().length() != 0) {
-                    new Transaction(title.getText().toString(), Integer.valueOf(sum.getText().toString())).save();
+                    new Transaction(title.getText().toString(), Integer.valueOf(sum.getText().toString()), trandate).save();
                     finish();
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(),
@@ -117,44 +111,25 @@ public class AddTransactionActivity extends ActionBarActivity {
         return new Select().from(Transaction.class).orderBy("CreateDate Desc").executeSingle();
     }
 
-
-
-
-  //String[] ITEMS = getResources().getStringArray(R.array.countries_list);
-  //  spinner = (MaterialSpinner) findViewById(R.id.spinner);
-   
-//    if (savedInstanceState != null) {
-//            DatePickerDialog dpd = (DatePickerDialog) getSupportFragmentManager().findFragmentByTag(DATEPICKER_TAG);
-//            if (dpd != null) {
-//                dpd.setOnDateSetListener(this);
-//            }
-//
-//            TimePickerDialog tpd = (TimePickerDialog) getSupportFragmentManager().findFragmentByTag(TIMEPICKER_TAG);
-//            if (tpd != null) {
-//                tpd.setOnTimeSetListener(this);
-//            }
-//        }
-//    }
-
-    private boolean isVibrate() {
-        return ((CheckBox) findViewById(R.id.checkBoxVibrate)).isChecked();
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
-    private boolean isCloseOnSingleTapDay() {
-        return ((CheckBox) findViewById(R.id.checkBoxCloseOnSingleTapDay)).isChecked();
-    }
-
-    private boolean isCloseOnSingleTapMinute() {
-        return ((CheckBox) findViewById(R.id.checkBoxCloseOnSingleTapMinute)).isChecked();
-    }
-
-    public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) {
-        Toast.makeText(AddTransactionActivity.this, "new date:" + year + "-" + month + "-" + day, Toast.LENGTH_LONG).show();
-    }
-
-
-    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
-        Toast.makeText(AddTransactionActivity.this, "new time:" + hourOfDay + "-" + minute, Toast.LENGTH_LONG).show();
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int day) {
+        //do some stuff for example write on log and update TextField on activity
+        Log.w("DatePicker", "Date = " + year);
+        enterdata.setText(new StringBuilder().append(day)
+                .append("-").append(month + 1).append("-").append(year)
+                .append(" "));
+        oldstring = enterdata.getText().toString();
+        try {
+            trandate = new SimpleDateFormat("dd-MM-yyyy").parse(oldstring);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.w("trandate", "Date = " + trandate);
+        }
     }
 
 }

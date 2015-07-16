@@ -52,7 +52,7 @@ public class TransactionAdapter extends SelectableAdapter<TransactionAdapter.Car
         holder.sum.setText(String.valueOf(transaction.sum));
         holder.date.setText(String.valueOf((new SimpleDateFormat("dd-MM-yyyy").format(transaction.getDate()))));
         holder.selected.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
- //       setAnimation(holder.cardView, position);
+        //   setAnimation(holder.cardView, position);
 
     }
 
