@@ -84,10 +84,10 @@ public class CategoryFragment extends Fragment {
             public void onClick(View v) {
                 Editable text = editText.getText();
                 if (!TextUtils.isEmpty(text)) {
-                    ar.add(text.toString());
+                    adapter.add(text.toString());
                    // String[] values = setResources().setStringArray(R.array.testArray);
-
-                    adapterstart();
+                     adapter.notifyDataSetChanged();
+                    //adapterstart();
                     dialog.dismiss();
                 } else {
                     Toast toast = Toast.makeText(getActivity().getApplicationContext(),
