@@ -23,10 +23,10 @@ public class StatmentFragment extends Fragment {
 
     @AfterViews
     void ready() {
-        map.put("Food", 15.7f);
-        map.put("Closes", 35.0f);
-        map.put("Electricity", 25.0f);
-        map.put("Rent", 9.1f);
+        map.put(getString(R.string.dom), 10.7f);
+        map.put(getString(R.string.eda), 102.0f);
+        map.put(getString(R.string.juvotn), 25.0f);
+        map.put(getString(R.string.zdorov), 9.1f);
         Random r;
         for (Map.Entry<String, Float> entry : map.entrySet()) {
             String key = entry.getKey();
