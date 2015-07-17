@@ -46,6 +46,8 @@
     <string name="dom">Дом</string>
     <string name="eda">Еда</string>
     <string name="juvotn">Животные</string>
+    <string name="cansel">ОТМЕНА</string>
+    <string name="ok">OK</string>
     <string name="zdorov">Здоровье</string>
     <string name="odejda">Одежда</string>
     <string name="teknika">Техника</string>
