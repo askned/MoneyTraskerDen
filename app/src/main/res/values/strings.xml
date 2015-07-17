@@ -6,6 +6,7 @@
     <string name="status_msg">status</string>
     <string name="title">Title</string>
     <string name="sum">Sum</string>
+        <string name="ok">OK</string>
     <string name="date">date</string>
     <string name="transactions">Траты</string>
     <string name="text_statpage">Здесь будет статистика</string>
@@ -13,6 +14,7 @@
     <string name="categorii">Категории</string>
     <string name="textcategory">Техника Еда</string>
 
+  <string name="cansel">ОТМЕНА</string>
    <string name="enter_login">Логин</string>
     <string name="enter_password">Пароль</string>
     <string name="action_sign_in">Войти / зарегистрироваться</string>
