@@ -61,6 +61,13 @@ public class CategoryFragment extends Fragment {
 
     @AfterViews()
     void ready() {
+      
+        List<Category> data = Category.getAll();
+        categoryAdapter = new CategoryAdapter(data);
+        recyclerView.setAdapter(categoryAdapter);
+
+      //  category_list.setAdapter(categoryAdapter);
+
 
         new Category("Loft");
         recyclerView.setHasFixedSize(true);
