@@ -11,16 +11,23 @@ public interface RestClient {
     @Get("/auth?login={login}&password={password}")
     AuthResult login(CharSequence login, CharSequence password);
 
+    @Get("/auth?login={login}&password={password}&register=1")
+    Result registration(CharSequence login, CharSequence password);
+
     @Get("/transactions")
     TransactionsResult getTransactions();
 
 
-    @Post("/transactions/add?sum={sum}&comment={title}&tr_date={date}&category_id=1")
-    Result addTransactions(Integer sum, String title, String date);
+    @Post("/transactions/add?sum={sum}&comment={comment}&tr_date={tr_date}&category_id=1")
+    Result addTransactions(Integer sum, String comment, String tr_date, Integer trcategory);
 
 
     @Post("/categories/add?title={title}")
     Result addCategory(String title);
+
+
+    @Get("/categories")
+    CategoryResult getCategory();
 
 
     @Post("/balance?set={balance}")

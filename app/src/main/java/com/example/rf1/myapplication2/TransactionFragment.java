@@ -165,11 +165,7 @@ public class TransactionFragment extends Fragment {
             actionMode.invalidate();
         }
     }
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        recyclerView.setAdapter(new TransactionAdapter(getDataList()));
-//    }
+
 
     @Click
     void fabClicked() {
@@ -177,13 +173,7 @@ public class TransactionFragment extends Fragment {
         getActivity().overridePendingTransition(R.anim.from_middle, R.anim.to_middle);
     }
 
- //   private List<Transaction> getDataList() {
-  //      return new Select()
-  //              .from(Transaction.class)
-    //              .where("Category = ?", category.getId())
-  //              .orderBy("date DESC")
-//.execute();
- //   }
+
 
     private class ActionModeCallback implements android.support.v7.view.ActionMode.Callback {
 

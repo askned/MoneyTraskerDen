@@ -2,21 +2,20 @@
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     style="@style/Container.DarkBackground">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/background"
-        android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/card_listView"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+
+            android:id="@+id/category_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:cacheColorHint="@android:color/transparent"
-            android:divider="#7F7F7F"
-            android:dividerHeight="0.4dp"
-            android:listSelector="@android:color/transparent" />
-    </LinearLayout>
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 
     <com.melnykov.fab.FloatingActionButton
         android:id="@+id/fab"

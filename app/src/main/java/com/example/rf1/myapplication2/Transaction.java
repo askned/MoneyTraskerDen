@@ -16,21 +16,32 @@ public class Transaction extends Model {
     private static final int ID_SYNCED = -1;
 
     @Column(name = "title")
-    public String title;
+    public String comment;
     @Column(name = "sum")
     public Integer sum;
     @Column(name = "date")
-    public Date date;
+    public Date tr_date;
     @Column(name = "uuid")
     private int id;
+    @Column(name = "trcategory")
+    public int trcategory;
+
+
 
     public Transaction() {
     }
 
-    public Transaction(String title, Integer sum) {
-        this.title = title;
+
+    public Transaction(String title, Integer sum, Date dateenter) {
+        this.comment = title;
         this.sum = sum;
-        date = new Date();
+        tr_date = dateenter;
+    }
+    public Transaction(String title, Integer sum, Date dateenter, Integer trcategory) {
+        this.comment = title;
+        this.sum = sum;
+        this.tr_date = dateenter;
+        this.trcategory = trcategory;
     }
 public void markSynced() {
         id = ID_SYNCED;
@@ -41,7 +52,7 @@ public void markSynced() {
         return new Select()
                 .from(Transaction.class)
                 .where("uuid = ?", id)
-                        //      .orderBy("date DESC")
+
                 .executeSingle() != null;
     }
 
@@ -51,8 +62,6 @@ public void markSynced() {
 
                 .orderBy("date DESC")
                 .execute();
-//        if (!TextUtils.isEmpty(filter))
-//            from.where("title LIKE ?", "%" + filter + "%");
 
     }
 
@@ -60,7 +69,7 @@ public void markSynced() {
         return new Select()
                 .from(Transaction.class)
                 .where("uuid = ?", ID_UNSYNCED)
-                        //     .orderBy("date DESC")
+
                 .execute();
     }
 
@@ -70,5 +79,18 @@ public void markSynced() {
                 .where("uuid = ?", ID_SYNCED)
                 .orderBy("date DESC")
                 .execute();
+    }
+
+
+    public String getName() {
+        return comment;
+    }
+
+    public Integer getSum() {
+        return sum;
+    }
+
+    public Date getDate() {
+        return tr_date;
     }
 }

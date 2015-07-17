@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
 
     @AfterViews
     void ready() {
-        String[] navigationData = new String[]{getString(R.string.transactions), getString(R.string.categorii), getString(R.string.statistics)};
+        String[] navigationData = new String[]{getString(R.string.transactions), getString(R.string.categorii), getString(R.string.statistics), getString(R.string.razrabotka)};
         ArrayAdapter<String> navigationDrawerAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, navigationData);
         left_drawer.setAdapter(navigationDrawerAdapter);
         left_drawer.setOnItemClickListener(new DrawerItemClickListener());
@@ -57,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
 
         getFragmentManager().beginTransaction().replace(R.id.content_frame, new TransactionFragment_()).commit();
 
-        //  testNet();
+
     }
 
     @Override
@@ -66,26 +66,7 @@ public class MainActivity extends ActionBarActivity {
         sessionManager.login(this);
     }
 
-//    @Receiver(actions = {SessionManager.SESSION_OPENED_BROADCAST}, registerAt = Receiver.RegisterAt.OnResumeOnPause, local = true)
-//    void onSessionOpen() {
-//        testNet();
-//    }
 
-
-//    @Background
-//    void testNet() {
-//
-//        //     sessionManager.createAccount("den", "1");
-//
-//        //    final AuthResult login = api.login("den", "1");
-//
-//        // AuthenticatorInterceptor.authToken = login.authToken;
-//        //    api.addCategory("1second");
-//        //         api.addBalance(100000);
-//        final Result result = api.addTransactions(999, "airplane", "2015-05-25");
-//        final TransactionsResult transactionsResult = api.getTransactions();
-//
-//    }
 
     @Override
     public void setTitle(CharSequence title) {
@@ -122,6 +103,14 @@ public class MainActivity extends ActionBarActivity {
                 drawerLayout.closeDrawer(left_drawer);
                 setTitle(getString(R.string.statistics));
                     getFragmentManager().beginTransaction().replace(R.id.content_frame, StatmentFragment_.builder().build()).commit();
+                    break;
+                
+                case 3:
+
+                left_drawer.setItemChecked(position, true);
+                drawerLayout.closeDrawer(left_drawer);
+                setTitle(getString(R.string.razrabotka));
+                    getFragmentManager().beginTransaction().replace(R.id.content_frame, RazrabotkaFragment_.builder().build()).commit();
                     break;
             }
         }

@@ -1,21 +1,21 @@
 <resources>
-    <string name="app_name">MoneyTrackerApp</string>
+    <string name="app_name">Denis Money Tracker</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="status_msg">status</string>
     <string name="title">Title</string>
-    <string name="sum">Sum</string>
-    <string name="date">date</string>
+   <string name="sum">Сумма</string>
+   <string name="date">Дата</string>
     <string name="transactions">Траты</string>
     <string name="text_statpage">Здесь будет статистика</string>
     <string name="statistics">Статистика</string>
     <string name="categorii">Категории</string>
     <string name="textcategory">Техника Еда</string>
-
+    <string name="dodat">Добавить</string>
    <string name="enter_login">Логин</string>
     <string name="enter_password">Пароль</string>
-    <string name="action_sign_in">Войти / зарегистрироваться</string>
+    <string name="action_sign_in">"Укажите дату</string>
     <string name="action_sign_in_short">Войти</string>
     
     <string name="ok">ok</string>
@@ -27,16 +27,43 @@
     <string name="drawer_item_open_source">Open Source</string>
     <string name="drawer_item_contact">Contact</string>
     <string name="add_transactions">Добавить трати</string>
-    <string name="tosterror">Not entered field!</string>
+    <string name="tosterror">Заполните поле!</string>
     <string name="summa">Cумма</string>
     <string name="noting">Примечание</string>
     <string name="datta">Дата</string>
-    <string name="defaulttext">Books</string>
+    <string name="defaulttext">Смартфон</string>
     <string name="login_error">Ошибка логина</string>
     <string name="add_category">Добавить категории</string>
+    <string name="loginisok">Авторизация успешна!</string>
+    <string name="registratok">Вы зарегестрировались.</string>
+    <string name="sum_hint">100</string>
+    <string name="about_hint">description</string>
+    <string name="add">ОК</string>
+    <string name="razrabotkatext">Разработано Шевченко Д.(askden8@gmail.com) </string>
+    <string name="razrabotka">Разработка</string>
+    <string name="pick_date">дату</string>
+    <string name="categoriya">Категория</string>
+    <string name="dom">Дом</string>
+    <string name="eda">Еда</string>
+    <string name="juvotn">Животные</string>
+    <string name="zdorov">Здоровье</string>
+    <string name="odejda">Одежда</string>
+    <string name="teknika">Техника</string>
+    <string name="svyaz">Связь</string>
+    <string name="obrazovan">Образование</string>
+    <string name="drygoe">Другое</string>
     <string-array name="category">
-        <item>Продукты</item>
-        <item>Развления</item>
+        <item>Дом</item>
+        <item>Еда</item>
+        <item>Животные</item>
+        <item>Здоровье</item>
+        <item>Одежда</item>
+        <item>Техника</item>
+        <item>Развлечение</item>
+        <item>Связь</item>
+        <item>Спорт</item>
+        <item>Транспорт</item>
+        <item>Образование</item>
         <item>Другое</item>
     </string-array>
 </resources>

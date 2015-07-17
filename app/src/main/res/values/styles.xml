@@ -100,5 +100,6 @@
 
     <style name="Container.DarkBackground">
         <item name="android:background">@drawable/android_app_back</item>
+
     </style>
 </resources>
