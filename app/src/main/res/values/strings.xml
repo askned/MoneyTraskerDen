@@ -17,7 +17,7 @@
     <string name="enter_password">Пароль</string>
     <string name="action_sign_in">"Укажите дату</string>
     <string name="action_sign_in_short">Войти</string>
-    
+    <string name="chack_category">Выберите категории</string>
     <string name="ok">ok</string>
     <string name="drawer_item_home">Home</string>
     <string name="drawer_item_free_play">Free Play</string>
