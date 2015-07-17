@@ -33,7 +33,7 @@ import java.util.List;
 
 @EFragment(R.layout.categoris)
 public class CategoryFragment extends Fragment {
-   public ArrayList<String> ar = new ArrayList<>();
+  // public ArrayList<String> ar = new ArrayList<>();
 
     private CategoryAdapter adapter;
     private android.support.v7.view.ActionMode actionMode;
@@ -99,18 +99,18 @@ public class CategoryFragment extends Fragment {
 
 
 
-        ar.add(getString(R.string.dom));
-        ar.add(getString(R.string.eda));
-        ar.add(getString(R.string.juvotn));
-        ar.add(getString(R.string.zdorov));
-        ar.add(getString(R.string.odejda));
-        ar.add(getString(R.string.teknika));
-        ar.add(getString(R.string.svyaz));
-        ar.add(getString(R.string.obrazovan));
-        ar.add(getString(R.string.drygoe));
+  //      ar.add(getString(R.string.dom));
+ //       ar.add(getString(R.string.eda));
+  //      ar.add(getString(R.string.juvotn));
+  //      ar.add(getString(R.string.zdorov));
+  //      ar.add(getString(R.string.odejda));
+  //      ar.add(getString(R.string.teknika));
+  //      ar.add(getString(R.string.svyaz));
+ //       ar.add(getString(R.string.obrazovan));
+    //    ar.add(getString(R.string.drygoe));
 
 
-        fab.attachToRecyclerView(recyclerView);
+   //     fab.attachToRecyclerView(recyclerView);
 
 
 
