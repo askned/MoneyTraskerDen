@@ -22,7 +22,7 @@
     <EditText
         android:id="@+id/edittext"
         style="@style/Edit"
-        android:hint="Одежда" />
+        android:hint="@string/chack_category" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,8 +33,8 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="@color/background"
-            android:text="ОТМЕНА"
-            android:textColor="#7F7F7F"
+            android:text="@string/cansel"
+            android:textColor="@color/text_color"
 
             />
 
@@ -48,7 +48,7 @@
             android:layout_alignParentTop="true"
             android:layout_gravity="right"
             android:background="@color/background"
-            android:text="ОК"
-            android:textColor="#7F7F7F" />
+            android:text="@string/ok"
+            android:textColor="@color/text_color" />
     </RelativeLayout>
 </LinearLayout>
