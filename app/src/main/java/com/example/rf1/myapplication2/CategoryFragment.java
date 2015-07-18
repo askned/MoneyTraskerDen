@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,12 +29,11 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @EFragment(R.layout.categoris)
 public class CategoryFragment extends Fragment {
-  // public ArrayList<String> ar = new ArrayList<>();
+
 
     private CategoryAdapter adapter;
     private android.support.v7.view.ActionMode actionMode;
@@ -47,29 +47,30 @@ public class CategoryFragment extends Fragment {
     SwipeRefreshLayout msSwipeRefreshLayout;
 
 
-
     @ViewById(R.id.fab)
     FloatingActionButton fab;
 
-    //  @StringArrayRes(R.array.category)
-    //  String values[];
+
 
     @Click(R.id.fab)
     void alert() {
         alertDialog();
     }
 
+    public void onResume() {
+        super.onResume();
+
+        loadData();
+    }
+
     @AfterViews()
     void ready() {
       
         List<Category> data = Category.getAll();
-        categoryAdapter = new CategoryAdapter(data);
-        recyclerView.setAdapter(categoryAdapter);
-
-      //  category_list.setAdapter(categoryAdapter);
+        adapter = new CategoryAdapter(data);
+        recyclerView.setAdapter(adapter);
 
 
-        new Category("Loft");
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -93,6 +94,8 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 adapter.removeItem(viewHolder.getAdapterPosition());
+                Log.w("trandate", "AdapDELL = " + viewHolder.toString());
+                //    new Delete().from(Category.class).where("categoryname = ?", 1).execute();
             }
         };
 
@@ -103,28 +106,7 @@ public class CategoryFragment extends Fragment {
 
 
 
-
-
-
-  //      ar.add(getString(R.string.dom));
- //       ar.add(getString(R.string.eda));
-  //      ar.add(getString(R.string.juvotn));
-  //      ar.add(getString(R.string.zdorov));
-  //      ar.add(getString(R.string.odejda));
-  //      ar.add(getString(R.string.teknika));
-  //      ar.add(getString(R.string.svyaz));
- //       ar.add(getString(R.string.obrazovan));
-    //    ar.add(getString(R.string.drygoe));
-
-
-   //     fab.attachToRecyclerView(recyclerView);
-
-
-
     }
-
-
-
 
 
 
@@ -143,8 +125,8 @@ public class CategoryFragment extends Fragment {
                                             Editable text = editText.getText();
                                             if (!TextUtils.isEmpty(text)) {
                                                 new Category(text.toString()).save();
-                                                //  category.add(text.toString());
 
+                                                loadData();
                                                 dialog.dismiss();
                                             } else {
                                                 Toast toast = Toast.makeText(getActivity().getApplicationContext(),

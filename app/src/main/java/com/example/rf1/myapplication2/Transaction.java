@@ -59,8 +59,16 @@ public void markSynced() {
     public static List<Transaction> getAll() {
         return new Select()
                 .from(Transaction.class)
-
                 .orderBy("date DESC")
+                .execute();
+
+    }
+
+
+    public static List<Transaction> getSumcat() {
+        return new Select()
+                .from(Transaction.class)
+                .where("categoryname = ?", 1)
                 .execute();
 
     }

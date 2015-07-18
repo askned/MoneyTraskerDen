@@ -33,6 +33,7 @@ public class TransactionFragment extends Fragment {
     private TransactionAdapter adapter;
     private android.support.v7.view.ActionMode actionMode;
     private ActionModeCallback actionModeCallback = new ActionModeCallback();
+    TransactionAdapter transactionAdapter;
 
     @ViewById(R.id.transactions_list)
     RecyclerView recyclerView;
@@ -50,6 +51,11 @@ public class TransactionFragment extends Fragment {
 
     @AfterViews
     void ready() {
+        List<Transaction> data = Transaction.getAll();
+        transactionAdapter = new TransactionAdapter(data);
+        recyclerView.setAdapter(transactionAdapter);
+
+
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

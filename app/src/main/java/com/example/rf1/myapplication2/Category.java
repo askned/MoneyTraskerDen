@@ -12,21 +12,25 @@ import java.util.List;
 public class Category extends Model {
 
 
+
     @Column(name = "categoryname")
     public String categoryname;
 
+    @Column(name = "catid")
+    public Integer catid;
 
+    private static int catid1 = 0;
     public Category() {    }
 
     public Category(String categoryname) {
         this.categoryname = categoryname;
-      //  this.catid = catid;
+        catid = catid1 + 1;
+        catid1 = catid;
     }
 
     public static List<Category> getAll() {
         return new Select()
                 .from(Category.class)
-                .orderBy("date DESC")
                 .execute();
 
     }

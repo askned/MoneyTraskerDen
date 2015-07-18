@@ -7,7 +7,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -26,6 +25,7 @@ import org.androidannotations.annotations.res.StringArrayRes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 @EActivity(R.layout.addtrans)
@@ -47,6 +47,7 @@ public class AddTransactionActivity extends ActionBarActivity implements DatePic
     String oldstring;
     Date trandate;
 
+
     @ViewById
     Spinner spinner;
 
@@ -65,21 +66,28 @@ public class AddTransactionActivity extends ActionBarActivity implements DatePic
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.add_transactions));
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.category, android.R.layout.simple_spinner_item);
+
+        List<Category> catall = Category.getAll();
+
+
+        CustomAdapter adapter = new CustomAdapter(this,
+                android.R.layout.simple_spinner_item, catall);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+
         spinner.setAdapter(adapter);
+
 
     }
             @Click
             void addTransaction() {
                 if (title.getText().length() != 0 && sum.getText().length() != 0 && enterdata.getText().length() != 12) {
                     Integer checkcategory = spinner.getSelectedItemPosition();
-                    new Transaction(title.getText().toString(), Integer.valueOf(sum.getText().toString()), trandate, checkcategory).save();
+                    new Transaction(title.getText().toString(), Integer.valueOf(sum.getText().toString()), trandate, 12).save();
                     finish();
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(),

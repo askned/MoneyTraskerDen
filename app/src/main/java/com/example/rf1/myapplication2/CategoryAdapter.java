@@ -3,12 +3,15 @@ package com.example.rf1.myapplication2;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+
+import com.activeandroid.query.Delete;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -51,13 +54,17 @@ public class CategoryAdapter extends SelectableAdapter<CategoryAdapter.CardViewH
         Category category = categories.get(position);
         holder.catname.setText(category.categoryname);
         holder.catselected.setVisibility(isSelected(position) ? View.VISIBLE : View.INVISIBLE);
-        //   setAnimation(holder.cardView, position);
+        //        setAnimation(holder.cardView, position);
 
     }
 
     public void removeItem(int position) {
+
+        new Delete().from(Category.class).where("categoryname = ?", categories.get(position)).execute();
+        Log.w("trandate", "CatedDELL = " + categories.get(position));
         categories.remove(position);
         notifyItemRemoved(position);
+
     }
 
     public void removeItems(List<Integer> positions) {
