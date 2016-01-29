@@ -1,58 +1,57 @@
 <resources>
     <string name="app_name">Denis Money Tracker</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="status_msg">status</string>
-    <string name="title">Title</string>
-   <string name="sum">Сумма</string>
-   <string name="date">Дата</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="status_msg" translatable="false">status</string>
+    <string name="title" translatable="false">Title</string>
+    <string name="sum">Сумма</string>
+    <string name="date">Дата</string>
     <string name="transactions">Траты</string>
-    <string name="text_statpage">Здесь будет статистика</string>
+    <string name="text_statpage" translatable="false">Здесь будет статистика</string>
     <string name="statistics">Статистика</string>
     <string name="categorii">Категории</string>
-    <string name="textcategory">Техника Еда</string>
+    <string name="textcategory" translatable="false">Техника Еда</string>
     <string name="dodat">Добавить</string>
-   <string name="enter_login">Логин</string>
+    <string name="enter_login">Логин</string>
     <string name="enter_password">Пароль</string>
     <string name="action_sign_in">"Укажите дату</string>
     <string name="action_sign_in_short">Войти</string>
     <string name="chack_category">Выберите категории</string>
 
-    <string name="drawer_item_home">Home</string>
-    <string name="drawer_item_free_play">Free Play</string>
-    <string name="drawer_item_custom">Custom</string>
-    <string name="drawer_item_settings">Settings</string>
-    <string name="drawer_item_help">Help</string>
-    <string name="drawer_item_open_source">Open Source</string>
-    <string name="drawer_item_contact">Contact</string>
+    <string name="drawer_item_home" translatable="false">Home</string>
+    <string name="drawer_item_free_play" translatable="false">Free Play</string>
+    <string name="drawer_item_custom" translatable="false">Custom</string>
+    <string name="drawer_item_settings" translatable="false">Settings</string>
+    <string name="drawer_item_help" translatable="false">Help</string>
+    <string name="drawer_item_open_source" translatable="false">Open Source</string>
+    <string name="drawer_item_contact" translatable="false">Contact</string>
     <string name="add_transactions">Добавить трати</string>
-    <string name="tosterror">Заполните поле!</string>
+    <string name="tosterror" translatable="false">Заполните поле!</string>
     <string name="summa">Cумма</string>
     <string name="noting">Примечание</string>
     <string name="datta">Дата</string>
     <string name="defaulttext">Смартфон</string>
-    <string name="login_error">Ошибка логина</string>
+    <string name="login_error" translatable="false">Ошибка логина</string>
     <string name="add_category">Добавить категории</string>
-    <string name="loginisok">Авторизация успешна!</string>
-    <string name="registratok">Вы зарегестрировались.</string>
-    <string name="sum_hint">100</string>
-    <string name="about_hint">description</string>
-    <string name="add">ОК</string>
-    <string name="razrabotkatext">Разработано Шевченко Д.(askden8@gmail.com) </string>
+    <string name="loginisok" translatable="false">Авторизация успешна!</string>
+    <string name="registratok" translatable="false">Вы зарегестрировались.</string>
+    <string name="sum_hint" translatable="false">100</string>
+    <string name="about_hint" translatable="false">description</string>
+    <string name="add" translatable="false">ОК</string>
+    <string name="razrabotkatext" translatable="false">Разработано Шевченко Д.(askden8@gmail.com) </string>
     <string name="razrabotka">Разработка</string>
     <string name="pick_date">дату</string>
     <string name="categoriya">Категория</string>
     <string name="dom">Дом</string>
     <string name="eda">Еда</string>
-    <string name="juvotn">Животные</string>
+    <string name="juvotn" translatable="false">Животные</string>
     <string name="cansel">ОТМЕНА</string>
-    <string name="ok">OK</string>
-    <string name="zdorov">Здоровье</string>
-    <string name="odejda">Одежда</string>
-    <string name="teknika">Техника</string>
-    <string name="svyaz">Связь</string>
-    <string name="obrazovan">Образование</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="zdorov" translatable="false">Здоровье</string>
+    <string name="odejda" translatable="false">Одежда</string>
+    <string name="teknika" translatable="false">Техника</string>
+    <string name="svyaz" translatable="false">Связь</string>
+    <string name="obrazovan" translatable="false">Образование</string>
     <string name="drygoe">Другое</string>
     <string-array name="category">
         <item>Дом</item>

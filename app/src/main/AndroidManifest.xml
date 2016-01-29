@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rf1.myapplication2" >
+    package="com.shevchenkodev.rf1.myapplication2">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -10,13 +10,13 @@
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
 
     <application
-        android:name=".LoftAplication"
+        android:name="com.shevchenkodev.rf1.myapplication2.LoftAplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_action"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.rf1.myapplication2.MainActivity_"
+            android:name="com.shevchenkodev.rf1.myapplication2.MainActivity_"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,17 +24,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.rf1.myapplication2.LoginActivity_" />
-        <activity android:name="com.example.rf1.myapplication2.AddTransactionActivity_">
+        <activity android:name="com.shevchenkodev.rf1.myapplication2.LoginActivity_" />
+        <activity android:name="com.shevchenkodev.rf1.myapplication2.AddTransactionActivity_">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.rf1.myapplication2.MainActivity_" />
+                android:value="com.shevchenkodev.rf1.myapplication2.MainActivity_" />
 
 
         </activity>
 
         <service
-            android:name=".auth.AuthService"
+            android:name="com.shevchenkodev.rf1.myapplication2.auth.AuthService"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
@@ -46,7 +46,7 @@
         </service>
 
         <service
-            android:name=".sync.SyncService"
+            android:name="com.shevchenkodev.rf1.myapplication2.sync.SyncService"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
@@ -58,8 +58,8 @@
         </service>
 
         <provider
-            android:name=".sync.StubContentProvider"
-            android:authorities="com.example.rf1.myapplication2"
+            android:name="com.shevchenkodev.rf1.myapplication2.sync.StubContentProvider"
+            android:authorities="com.shevchenkodev.rf1.myapplication2"
             android:exported="false"
             android:syncable="true" />
 

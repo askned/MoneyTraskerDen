@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Denis Money Tracker</string>
+    <string name="action_sign_in_short">Enter</string>
+    <string name="add" translatable="false"></string>
+    <string name="add_category" translatable="false">Add</string>
+    <string name="cansel" translatable="false">CANCEL</string>
+    <string name="categorii" translatable="false">Categories</string>
+    <string name="categoriya" translatable="false">Categories</string>
+    <string name="date">Date</string>
+    <string name="datta">Date</string>
+    <string name="defaulttext">Phone</string>
+    <string name="dodat" translatable="false">Add</string>
+    <string name="dom" translatable="false">Home</string>
+    <string name="chack_category">Select category</string>
+    <string name="drygoe" translatable="false">Other</string>
+    <string name="eda" translatable="false">Food</string>
+    <string name="enter_login" translatable="false">Login</string>
+    <string name="enter_password" translatable="false">Password</string>
+    <string name="action_sign_in">"Set date</string>
+    <string name="statistics">Statistics</string>
+    <string name="sum" translatable="false">Sum</string>
+    <string name="summa" translatable="false">Sum</string>
+    <string name="transactions">Trat</string>
+    <string name="pick_date">date</string>
+    <string name="razrabotka" translatable="false">Developed</string>
+    <string name="add_transactions" translatable="false">Add Trat</string>
+    <string name="noting" translatable="false">Title</string>
+</resources>
