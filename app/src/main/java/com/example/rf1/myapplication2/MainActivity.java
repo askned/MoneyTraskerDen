@@ -66,23 +66,6 @@ public class MainActivity extends ActionBarActivity {
         sessionManager.login(this);
     }
 
-
-
-//    @Background
-//    void testNet() {
-//
-//        //     sessionManager.createAccount("den", "1");
-//
-//        //    final AuthResult login = api.login("den", "1");
-//
-//        // AuthenticatorInterceptor.authToken = login.authToken;
-//        //    api.addCategory("1second");
-//        //         api.addBalance(100000);
-//        final Result result = api.addTransactions(999, "airplane", "2015-05-25");
-//        final TransactionsResult transactionsResult = api.getTransactions();
-//
-//    }
-
     @Override
     public void setTitle(CharSequence title) {
         super.setTitle(title);
@@ -122,5 +105,16 @@ public class MainActivity extends ActionBarActivity {
             }
         }
     }
+    
+//    @Background
+//    void testNet() {
+//            sessionManager.createAccount("den", "1");
+//            final AuthResult login = api.login("den", "1");
+//         AuthenticatorInterceptor.authToken = login.authToken;
+//            api.addCategory("1second");
+//            api.addBalance(100000);
+//        final Result result = api.addTransactions(999, "airplane", "2015-05-25");
+//        final TransactionsResult transactionsResult = api.getTransactions();
+//    }
 
 }
