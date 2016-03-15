@@ -37,9 +37,7 @@ public class LoginActivity extends AccountAuthenticatorActivity {
 
     @Background
     void login() {
-        //  final AuthResult login = api.login(logintx.getText().toString(), passtx.getText().toString());
-        //  sessionManager.createAccount(logintx.getText().toString(), login.authToken);
-
+        
         final String loginName = this.logintx.getText().toString();
         final AuthResult loginResult = api.login(loginName, passtx.getText().toString());
         handleLoginResult(loginName, loginResult);
