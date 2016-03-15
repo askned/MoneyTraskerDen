@@ -66,10 +66,6 @@ public class MainActivity extends ActionBarActivity {
         sessionManager.login(this);
     }
 
-//    @Receiver(actions = {SessionManager.SESSION_OPENED_BROADCAST}, registerAt = Receiver.RegisterAt.OnResumeOnPause, local = true)
-//    void onSessionOpen() {
-//        testNet();
-//    }
 
 
 //    @Background
