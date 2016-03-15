@@ -7,7 +7,6 @@ import android.os.IBinder;
 public class SyncService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
-        //return new SyncAdapter(getApplicationContext()).getSyncAdapterBinder
-        return SyncAdapter_.getInstance_(getApplicationContext()).getSyncAdapterBinder();
+              return SyncAdapter_.getInstance_(getApplicationContext()).getSyncAdapterBinder();
     }
 }
