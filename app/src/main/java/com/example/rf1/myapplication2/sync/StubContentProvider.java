@@ -1,8 +1,5 @@
 package com.example.rf1.myapplication2.sync;
 
-/**
- * Created by 1 on 26.06.2015.
- */
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
